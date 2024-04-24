@@ -1,16 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fr.isep.projetjofuckitweball.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.HelloController">
+   <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+      
+      
+         <AnchorPane>
+               <children>
+                  <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="585.0" layoutX="-18.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </HBox>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="salut!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+      <VBox alignment="TOP_CENTER" prefHeight="288.0" prefWidth="371.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Connexion au compte" textAlignment="CENTER" wrappingWidth="185.13672256469727">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Line endX="100.0" startX="-100.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre e-mail :" wrappingWidth="181.13671684265137">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <TextField alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="208.0" promptText="E-mail" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre mot de passe  :" wrappingWidth="185.1367244720459">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="206.0" promptText="Password" />
+            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="126.0" style="-fx-border-radius: 100;" text="Se Connecter" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="0.12" />
+               </effect>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="532.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="C’est votre première connexion ? veuillez-vous créer un nouveau" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Hyperlink alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="24.0" prefWidth="129.0" text="compte">
+                     <HBox.margin>
+                        <Insets top="3.0" />
+                     </HBox.margin>
+                  </Hyperlink>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+   </VBox>
+</AnchorPane>
