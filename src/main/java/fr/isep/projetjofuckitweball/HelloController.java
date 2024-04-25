@@ -14,8 +14,8 @@ import java.lang.reflect.Field;
 import java.sql.*;
 
 public class HelloController {
-    @FXML
-    private ImageView bannerView;
+    @FXML    private ImageView bannerView;
+
 @FXML
     private Connection connection;
 @FXML

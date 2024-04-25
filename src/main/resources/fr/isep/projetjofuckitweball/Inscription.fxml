@@ -1,14 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="fr.isep.projetjofuckitweball.InscriptionControlleur"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="664.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.InscriptionControlleur">
+    <VBox alignment="TOP_CENTER" prefHeight="622.0" prefWidth="626.0" spacing="20.0" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <AnchorPane>
+                    <children>
+                        <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="585.0" layoutX="-18.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <VBox alignment="TOP_CENTER" prefHeight="353.0" prefWidth="586.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Création de votre compte olympique" textAlignment="CENTER" wrappingWidth="285.13672256469727">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Text>
+                <Line endX="100.0" startX="-100.0" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre sexe : " wrappingWidth="179.61133098602295" />
+                <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="28.0" prefWidth="436.0">
+                    <children>
+                  <ComboBox fx:id="genderComboBox" prefHeight="26.0" prefWidth="111.0" promptText="Sexe">
+                     <HBox.margin>
+                        <Insets left="125.0" />
+                     </HBox.margin>
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Homme" />
+                              <String fx:value="Femme" />
+                              <String fx:value="Autre" />
+                          </FXCollections>
+                      </items>
+                  </ComboBox>
+                        <Button fx:id="chooseImageButton" onAction="#handleChooseImage" prefHeight="26.0" prefWidth="113.0" text="Photo de profil">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin></Button>
+                        <ImageView fx:id="imageView" fitHeight="53.0" fitWidth="62.0">
+                            <!-- Clip pour arrondir l'image -->
+                            <clip>
+                                <Circle centerX="31.0" centerY="26.5" radius="26.0" />
+                            </clip>
+                     <HBox.margin>
+                        <Insets left="70.0" />
+                     </HBox.margin>
+                        </ImageView>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre Nom :" wrappingWidth="186.62890625" />
+            <TextField fx:id="nomField" alignment="CENTER" maxWidth="-Infinity" prefWidth="208.0" promptText="Nom" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre Prénom :" wrappingWidth="198.49999237060547">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="prenomField" alignment="CENTER" maxWidth="-Infinity" prefWidth="208.0" promptText="Prénom" />
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="213.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <VBox maxHeight="-Infinity" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre Age :" />
+                        <TextField fx:id="ageField" alignment="CENTER" promptText="Age" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre Role :" />
+                        <TextField fx:id="roleField" alignment="CENTER" prefHeight="32.0" prefWidth="67.0" promptText="Discipline" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="80.0" />
+                     </HBox.margin></VBox>
+               </children>
+            </HBox>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre e-mail :" wrappingWidth="181.13671684265137">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Text>
+                <TextField fx:id="emailField" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="208.0" promptText="E-mail" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre mot de passe  :" wrappingWidth="185.1367244720459">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Text>
+                <PasswordField fx:id="passwordField" alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="206.0" promptText="Password" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vérification du mot du passe :" wrappingWidth="191.716796875">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="208.0" promptText="Vérification" />
+                <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleInscription" prefHeight="46.0" prefWidth="126.0" style="-fx-border-radius: 100;" text="Inscription" textAlignment="CENTER" fx:id="inscri">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <effect>
+                        <Glow level="0.12" />
+                    </effect>
+                    <padding>
+                        <Insets top="5.0" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Button>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </VBox>
+    </VBox>
+
 
 </AnchorPane>
