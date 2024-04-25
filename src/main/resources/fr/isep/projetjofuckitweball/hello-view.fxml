@@ -46,14 +46,14 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Text>
-            <TextField alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="208.0" promptText="E-mail" />
+            <TextField fx:id="emailField" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="208.0" promptText="E-mail" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Votre mot de passe  :" wrappingWidth="185.1367244720459">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Text>
-            <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="206.0" promptText="Password" />
-            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="126.0" style="-fx-border-radius: 100;" text="Se Connecter" textAlignment="CENTER">
+            <PasswordField alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="206.0" promptText="Password" fx:id="passwordField"/>
+            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loginUser" prefHeight="46.0" prefWidth="126.0" style="-fx-border-radius: 100;" text="Se Connecter" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
@@ -80,7 +80,7 @@
                         <Insets top="4.0" />
                      </HBox.margin>
                   </Text>
-                  <Hyperlink alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="24.0" prefWidth="129.0" text="compte">
+                  <Hyperlink alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="24.0" prefWidth="129.0" text="compte" onAction="#inscription" fx:id="signUpLink">
                      <HBox.margin>
                         <Insets top="3.0" />
                      </HBox.margin>
