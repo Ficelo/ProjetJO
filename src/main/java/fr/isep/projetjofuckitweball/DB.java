@@ -9,6 +9,8 @@ public class DB {
 
     public Connection getConnection()
     {
+        //test
+
         String databaseName="app_java";
         String databaseUser="root";
         String databasePassword="";

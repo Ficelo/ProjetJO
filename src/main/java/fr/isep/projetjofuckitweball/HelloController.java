@@ -24,6 +24,8 @@ private TextField emailField;
 private PasswordField passwordField;
 @FXML
     private Hyperlink signUpLink;
+@FXML
+private Button connex;
 
 
 
@@ -73,6 +75,7 @@ private PasswordField passwordField;
             if (resultSet.next()) {
                 // Les informations de connexion sont correctes
                 showAlert(Alert.AlertType.INFORMATION, "Connexion Réussie", "Vous êtes connecté.");
+                redirectionConnexion();
             } else {
                 // Les informations de connexion sont incorrectes
                 showAlert(Alert.AlertType.ERROR, "Erreur", "L'e-mail ou le mot de passe est incorrect.");
@@ -107,6 +110,26 @@ private PasswordField passwordField;
     }
 
 
+    private void redirectionConnexion()
+    {
+        try {
+            // Charger le fichier FXML de la page d'inscription
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Principale.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            Stage PrincipaleStage = new Stage();
+            PrincipaleStage.setScene(scene);
+            PrincipaleStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void showAlert(Alert.AlertType type, String title, String content) {
         Alert alert = new Alert(type);
