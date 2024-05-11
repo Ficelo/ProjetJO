@@ -30,13 +30,15 @@ private Button connex;
 
 
     public void initialize() {
-        Image bannerImage = new Image("C:\\Users\\arsan\\IdeaProjects\\ProjetJO\\src\\main\\resources\\Images\\JoBan.jpg");
+        Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
         bannerView.setImage(bannerImage);
 
         initializeDB();
         signUpLink.setOnAction(event -> {
             inscription();
         });
+
+        
     }
 
     private void initializeDB() {
