@@ -3,9 +3,12 @@ package fr.isep.projetjofuckitweball;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -26,6 +29,10 @@ public class PrincipaleControlleur {
 
     @FXML
     private ImageView profileImageView;
+
+    @FXML private GridPane gridPane;
+    @FXML private ListView listView;
+    @FXML private Label labelScore;
 
 
     public void initialize() {
@@ -67,5 +74,31 @@ public class PrincipaleControlleur {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        // Jpense que je vais pas me faire chier et que je vais remplacer ça par un gros dropdown de bz
+        // Ça va me fare perdre trop de temps de faire un calendrier à la mano comme ça
+
+        int jour = 0;
+        for(int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                jour++;
+                if(jour <= 31){
+                    Label label = new Label(jour + "");
+                    label.getStyleClass().add("calendar-label");
+                    gridPane.add(label, j, i);
+                }
+            }
+        }
+
+        for(int i = 0; i < 15; i++) {
+            Label label = new Label("Epreuve de 200m nage libre | date : " + (i+1) + " Aout");
+            listView.getItems().add(label);
+        }
+
+        // Les emojis ça marche pas sur les labels >:c
+        labelScore.setText("USA 🇺🇸 : OR = 5, ARGENT = 4, Bronze = 6");
+
+
+
     }
 }
