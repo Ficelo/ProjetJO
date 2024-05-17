@@ -20,7 +20,7 @@
       
          <AnchorPane>
                <children>
-                  <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="585.0" layoutX="-18.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="585.0" layoutX="-18.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />

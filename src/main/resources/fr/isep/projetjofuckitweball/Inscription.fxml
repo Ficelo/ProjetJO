@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="664.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.InscriptionControlleur">
+<AnchorPane prefHeight="664.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.InscriptionControlleur">
     <VBox alignment="TOP_CENTER" prefHeight="622.0" prefWidth="626.0" spacing="20.0" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -20,7 +28,7 @@
             <children>
                 <AnchorPane>
                     <children>
-                        <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="585.0" layoutX="-18.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="585.0" layoutX="-18.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                     </children>
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -119,26 +127,24 @@
                </VBox.margin>
             </Text>
             <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="208.0" promptText="Vérification" />
-                <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleInscription" prefHeight="46.0" prefWidth="126.0" style="-fx-border-radius: 100;" text="Inscription" textAlignment="CENTER" fx:id="inscri">
+                <Button fx:id="inscri" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleInscription" prefHeight="46.0" prefWidth="126.0" style="-fx-border-radius: 100;" text="Inscription" textAlignment="CENTER">
                     <font>
                         <Font size="18.0" />
                     </font>
                     <effect>
                         <Glow level="0.12" />
                     </effect>
-                    <padding>
-                        <Insets top="5.0" />
-                    </padding>
-                    <VBox.margin>
-                        <Insets top="20.0" />
-                    </VBox.margin>
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
                 </Button>
+            <Hyperlink fx:id="linkRetourConnexion" onAction="#retourConnexion" text="Vous avez déjà un compte ? Connectez vous." />
             </children>
             <VBox.margin>
                 <Insets />

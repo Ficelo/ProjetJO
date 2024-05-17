@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -37,11 +34,12 @@ public class InscriptionControlleur {
     @FXML private TextField emailField;
     @FXML private PasswordField passwordField;
     @FXML private Button inscri;
+    @FXML private Hyperlink linkRetourConnexion;
 
 
 
     public void initialize() {
-        Image bannerImage = new Image("C:\\Users\\arsan\\IdeaProjects\\ProjetJO\\src\\main\\resources\\Images\\JoBan.jpg");
+        Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
         bannerView.setImage(bannerImage);
         }
 
@@ -83,7 +81,7 @@ public class InscriptionControlleur {
         redirectionConnexion();
     }
 
-    private Image defaultImage = new Image("C:\\Users\\arsan\\IdeaProjects\\ProjetJO\\src\\main\\resources\\Images\\png-transparent-default-avatar-thumbnail.png");
+    Image defaultImage = new Image(getClass().getResource("/Images/png-transparent-default-avatar-thumbnail.png").toExternalForm());
     /*
     private void inscrireUtilisateur(String sexe, String nom, String prenom, String age, String role, String email, String password, Image image) {
         DB db = new DB();
@@ -147,5 +145,8 @@ public class InscriptionControlleur {
         }
     }
 
+    public void retourConnexion() {
+        redirectionConnexion();
+    }
 }
 

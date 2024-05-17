@@ -10,7 +10,7 @@
 
     <AnchorPane>
 
-            <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="593.0" layoutX="8.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0" />
+            <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="593.0" layoutX="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0" />
           <ImageView fx:id="profileImageView" fitHeight="67.0" fitWidth="91.0" layoutX="27.0" layoutY="16.0" />
 
         <cursor>
