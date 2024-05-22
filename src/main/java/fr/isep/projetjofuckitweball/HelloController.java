@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.lang.reflect.Field;
 import java.sql.*;
 
 public class HelloController {
+    public AnchorPane topBar;
     @FXML    private ImageView bannerView;
 
 @FXML

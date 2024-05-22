@@ -36,22 +36,43 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="NATATION" textAlignment="CENTER" textFill="WHITE" wrapText="false">
-          <font>
-            <Font size="25.0" />
-          </font>
-        </Label>
-            <ImageView fitHeight="113.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true" />
-            <ListView layoutX="327.0" layoutY="129.0" prefHeight="257.0" prefWidth="292.0" />
-            <ListView layoutX="20.0" layoutY="129.0" prefHeight="257.0" prefWidth="292.0" />
-      </children>
-    </AnchorPane>
-  </children>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.DisciplineController">
+   <children>
+      <AnchorPane fx:id="topBar" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="profileImageView" fitHeight="50.0" fitWidth="50.0" layoutX="717.0" layoutY="21.0" />
+            <Label fx:id="AthleteButton" onMouseClicked="#loadAthlete" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" text="Athlètes" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="EvenementButton" onMouseClicked="#loadEvenement" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" text="Evenements" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="DisciplinesButton" onMouseClicked="#loadDiscipline" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" text="Disciplines" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="800.0" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="NATATION" textAlignment="CENTER" textFill="WHITE" wrapText="false">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="100.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <ListView layoutX="433.0" layoutY="290.0" prefHeight="257.0" prefWidth="292.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="310.0" />
+      <ListView prefHeight="257.0" prefWidth="292.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="405.0" AnchorPane.topAnchor="310.0" />
+   </children>
+</AnchorPane>

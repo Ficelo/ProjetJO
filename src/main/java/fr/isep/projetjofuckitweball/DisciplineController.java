@@ -5,35 +5,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
-public class PrincipaleControlleur {
+public class DisciplineController {
+
     public AnchorPane topBar;
     public Label AthleteButton;
     public Label EvenementButton;
     public Label DisciplinesButton;
     @FXML
     private ImageView bannerView;
-    @FXML
-    private Connection connection;
-
-
-    @FXML
-    private ImageView profileImageView;
-
-    @FXML private ListView listView;
 
     public void initialize() {
 
@@ -71,33 +58,9 @@ public class PrincipaleControlleur {
         Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
         bannerView.setImage(bannerImage);
 
-        try {
-            DB db = new DB();
-            Connection connection = db.getConnection();
-            int userId = AuthService.getLoggedInUserId();
-
-            String sql = "SELECT image FROM user WHERE id = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, userId);
-
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                byte[] imageData = resultSet.getBytes("image");
-                ByteArrayInputStream bis = new ByteArrayInputStream(imageData);
-                Image image = new Image(bis);
-                profileImageView.setImage(image);
-            }
-
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
 
     }
+
 
     public void loadDiscipline(MouseEvent mouseEvent) {
         try {
@@ -153,4 +116,5 @@ public class PrincipaleControlleur {
         }
 
     }
+
 }

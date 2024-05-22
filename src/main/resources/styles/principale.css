@@ -1,0 +1,23 @@
+.top-bar {
+    -fx-background-color: red;
+}
+
+/* Change the background color of the athlete button to red */
+.athlete-button {
+    -fx-background-color: red;
+}
+
+/* Change the background color of the banner view to red */
+.banner-view {
+    -fx-background-color: red;
+}
+
+/* Change the background color of the profile image view to red */
+.profile-image-view {
+    -fx-background-color: red;
+}
+
+/* Change the background color of the list view to red */
+.list-view {
+    -fx-background-color: red;
+}

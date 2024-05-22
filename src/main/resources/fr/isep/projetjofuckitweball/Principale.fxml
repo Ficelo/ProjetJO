@@ -1,46 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.PrincipaleControlleur" >
-    <AnchorPane>
+<AnchorPane prefHeight="800" prefWidth="800" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.PrincipaleControlleur">
 
-            <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="600.0" layoutX="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0" />
-          <ImageView fx:id="profileImageView" fitHeight="50.0" fitWidth="50.0" layoutX="531.0" layoutY="14.0" />
-
-        <cursor>
-            <Cursor fx:constant="DEFAULT" />
-        </cursor>
-
-    </AnchorPane>
-   <GridPane fx:id="gridPane" layoutX="12.0" layoutY="108.0" prefHeight="219.0" prefWidth="371.0">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-   </GridPane>
-   <ListView fx:id="listView" layoutX="386.0" layoutY="105.0" prefHeight="287.0" prefWidth="200.0" />
-   <Label fx:id="labelScore" layoutX="8.0" layoutY="327.0" prefHeight="63.0" prefWidth="371.0" text="Label" />
+    <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="800.0" layoutY="95.0" AnchorPane.bottomAnchor="605.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+   <AnchorPane fx:id="topBar" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+             <ImageView fx:id="profileImageView" fitHeight="50.0" fitWidth="50.0" layoutX="717.0" layoutY="21.0" />
+         <Label fx:id="AthleteButton" onMouseClicked="#loadAthlete" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" text="Athlètes" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <Label fx:id="EvenementButton" onMouseClicked="#loadEvenement" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" text="Evenements" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="0.0">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <Label fx:id="DisciplinesButton" onMouseClicked="#loadDiscipline" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" text="Disciplines" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+      </children></AnchorPane>
+   <ListView fx:id="listView" layoutX="390.0" layoutY="242.0" prefHeight="573.0" prefWidth="422.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="242.0" />
 
 
 </AnchorPane>
