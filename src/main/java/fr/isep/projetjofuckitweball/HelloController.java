@@ -78,6 +78,8 @@ private Button connex;
 
             if (resultSet.next()) {
                 // Les informations de connexion sont correctes
+                int userId = resultSet.getInt("id");
+                AuthService.setLoggedInUserId(userId); // Définir l'ID de l'utilisateur connecté
                 showAlert(Alert.AlertType.INFORMATION, "Connexion Réussie", "Vous êtes connecté.");
                 redirectionConnexion();
             } else {
@@ -89,6 +91,7 @@ private Button connex;
             e.printStackTrace();
         }
     }
+
     @FXML
     private void inscription()
     {

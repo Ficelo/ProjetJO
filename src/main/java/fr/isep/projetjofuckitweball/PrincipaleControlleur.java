@@ -30,24 +30,17 @@ public class PrincipaleControlleur {
     @FXML
     private Connection connection;
 
-
     @FXML
     private ImageView profileImageView;
 
     @FXML private ListView listView;
 
     public void initialize() {
-
         topBar.setStyle("-fx-background-color: #2E1D74;");
         AthleteButton.setStyle("-fx-text-fill: white;");
         EvenementButton.setStyle("-fx-text-fill: white;");
         DisciplinesButton.setStyle("-fx-text-fill: white;");
         AcceuilButton.setStyle("-fx-text-fill: white;");
-
-        // /!\ /!\ /!\ /!\ /!\
-        // Ça c'est vraiment une solution caca il faudrait que quelqu'un pige comment utiliser les fichiers CSS
-        // Je vais probablement faire une classe à part aussi
-
 
         AthleteButton.setOnMouseEntered(event -> {
             AthleteButton.setStyle("-fx-background-color: #8672d8; -fx-text-fill: white;");
@@ -86,30 +79,35 @@ public class PrincipaleControlleur {
 
         try {
             DB db = new DB();
-            Connection connection = db.getConnection();
+            connection = db.getConnection();
             int userId = AuthService.getLoggedInUserId();
 
-            String sql = "SELECT image FROM user WHERE id = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, userId);
+            System.out.println("User ID: " + userId); // Vérification de l'ID utilisateur
 
-            ResultSet resultSet = statement.executeQuery();
+            if (userId != -1) {
+                String sql = "SELECT image FROM user WHERE id = ?";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setInt(1, userId);
 
-            if (resultSet.next()) {
-                byte[] imageData = resultSet.getBytes("image");
-                ByteArrayInputStream bis = new ByteArrayInputStream(imageData);
-                Image image = new Image(bis);
-                profileImageView.setImage(image);
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    byte[] imageData = resultSet.getBytes("image");
+                    ByteArrayInputStream bis = new ByteArrayInputStream(imageData);
+                    Image image = new Image(bis);
+                    profileImageView.setImage(image);
+                }
+
+                resultSet.close();
+                statement.close();
+            } else {
+                System.out.println("Aucun utilisateur connecté.");
             }
 
-            resultSet.close();
-            statement.close();
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void loadDiscipline(MouseEvent mouseEvent) {
@@ -123,14 +121,12 @@ public class PrincipaleControlleur {
 
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void loadEvenement(MouseEvent mouseEvent) {
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Discipline.fxml"));
             Parent root = fxmlLoader.load();
@@ -141,15 +137,12 @@ public class PrincipaleControlleur {
 
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void loadAthlete(MouseEvent mouseEvent) {
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Athlete.fxml"));
             Parent root = fxmlLoader.load();
@@ -160,11 +153,9 @@ public class PrincipaleControlleur {
 
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void loadAcceuil(MouseEvent mouseEvent) {
@@ -178,7 +169,6 @@ public class PrincipaleControlleur {
 
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
