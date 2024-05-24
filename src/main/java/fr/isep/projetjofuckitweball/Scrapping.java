@@ -4,9 +4,9 @@ import org.jsoup.*;
 import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Scrapping {
@@ -19,6 +19,7 @@ public class Scrapping {
         doc = Jsoup.connect("https://en.wikipedia.org/wiki/2024_Summer_Olympics#Participating_National_Olympic_Committees").get();
 
         ArrayList<PaysScrapping> pays = getLiensPays(doc, false);
+        ArrayList<AthleteScrapping> athletesList = new ArrayList<>();
 
         // Pour les athlètes ajouter un truc pour détecter quand y'a plusieurs athlètes dans la même case
 
@@ -83,20 +84,25 @@ public class Scrapping {
 
                             if (!athleteCell.isEmpty() && !athleteCell.equals("*") && !athleteCell.equals("0") && !athleteCell.equals("—") && !athleteCell.equals("--")) {
                                 String[] athletes = athleteCell.split(" ");
-                                String[] athletesComplte = new String[athletes.length / 2];
+                                String[] athletesComplete = new String[athletes.length / 2];
 
                                 int a = 0;
                                 for (int i = 0; i < athletes.length; i++) {
-                                    if (i % 2 != 0){
-
-                                    } else {
-
+                                    if(a <= athletesComplete.length - 1) {
+                                        if (i % 2 != 0) {
+                                            athletesComplete[a] = athletesComplete[a] + " " + athletes[i]; // Ensure space between first and last name
+                                            a += 1;
+                                        } else {
+                                            athletesComplete[a] = athletes[i];
+                                        }
                                     }
                                 }
 
-                                for(String athlete : athletesComplte) {
-                                    if (!athlete.isEmpty()) {
-                                        System.out.println(athlete + " - " + event);
+                                for (String athlete : athletesComplete) {
+                                    if (athlete != null && !athlete.isEmpty()) {
+                                        System.out.println(athlete.trim() + " - " + event); // Trim to remove any leading or trailing spaces
+                                        String[] athleteSepare = athlete.split(" ");
+                                        athletesList.add(new AthleteScrapping(athleteSepare[0], athleteSepare[1]));
                                     }
                                 }
                             }
@@ -107,7 +113,7 @@ public class Scrapping {
             }
         }
 
-
+        getInfosAthletes(doc, true, athletesList);
 
 
     }
@@ -132,6 +138,79 @@ public class Scrapping {
         return pays;
     }
 
+    public static void getInfosAthletes(Document doc, boolean verbose, ArrayList<AthleteScrapping> athletesOld) throws IOException {
+        ArrayList<AthleteScrapping> athletes = new ArrayList<>();
+
+        for (AthleteScrapping athlete : athletesOld) {
+            String lien = "https://en.wikipedia.org/wiki/" + athlete.getNom() + "_" + athlete.getPrenom();
+            try {
+                doc = Jsoup.connect(lien).get();
+                //String dateNaissance = doc.select(".bday").text();
+                String age = "";
+                age = doc.select(".ForceAgeToShow").text();
+                String texteIntro = doc.selectXpath("/html/body/div[2]/div/div[3]/main/div[3]/div[3]/div[1]/p[2]").text();
+                String[] split = texteIntro.split(" ");
+                boolean sexe = false;
+                for (String s : split) {
+                    if (s.equals("She") || s.equals("she")) {
+                        sexe = true;
+                    }
+                }
+
+                String sport = "";
+                String event = "";
+                String nationalite = "";
+
+                Elements thElements = doc.select("th:contains(Sport), th:contains(Event), th:contains(Nationality)");
+                for (org.jsoup.nodes.Element thElement : thElements) {
+                    org.jsoup.nodes.Element nextTd = thElement.nextElementSibling();
+                    if (nextTd != null) {
+                        if (thElement.text().equalsIgnoreCase("Sport")) {
+                            sport = nextTd.text();
+                        } else if (thElement.text().equalsIgnoreCase("Event")) {
+                            event = nextTd.text();
+                        } else if (thElement.text().equalsIgnoreCase("Nationality")) {
+                            nationalite = nextTd.text();
+                        }
+                    }
+                }
+
+                System.out.println(athlete.getNom() + " " + athlete.getPrenom() + " : " + (age.equals("") ? "???" : age) + " sexe : " + (sexe ? "Femme" : "Homme") + " Sport: " + (sport.equals("") ? "???" : sport)  + " Event: " + (event.equals("") ? "???" : event) + " Nationalite : " + (nationalite.equals("") ? "???" : nationalite));
+
+                if (!age.equals("") && !sport.equals("") && !event.equals("") && !nationalite.equals("")) {
+                    String nom = athlete.getNom().replace("'", "");
+                    String prenom = athlete.getPrenom().replace("'", "");
+                    String sportCleaned = sport.replace("'", "");
+                    String eventCleaned = event.replace("'", "");
+                    String nationaliteCleaned = nationalite.replace("'", "");
+
+                    String requete = "INSERT INTO athletes (nom, prenom, age, sport, event, nationalite, sexe) VALUES ('" +
+                            nom + "', '" + prenom + "', '" + age + "', '" +
+                            sportCleaned + "', '" + eventCleaned + "', '" + nationaliteCleaned + "', '" +
+                            (sexe ? "Femme" : "Homme") + "');";
+                    System.out.println(requete);
+
+                    try {
+                        FileWriter writer = new FileWriter("insert_queries.sql", true); // Set 'true' to append to file
+                        writer.write(requete + "\n"); // Add newline for readability
+                        writer.close();
+                        System.out.println("SQL statement added to file.");
+                    } catch (IOException e) {
+                        System.out.println("An error occurred while writing to the file.");
+                        e.printStackTrace();
+                    }
+                }
+
+
+            } catch (HttpStatusException e) {
+                System.err.println("Page not found for athlete: " + athlete.getNom() + " " + athlete.getPrenom() + " - URL: " + lien);
+            }
+        }
+
+        if (verbose) {
+            // Additional verbose logic if needed
+        }
+    }
 
 
 }
