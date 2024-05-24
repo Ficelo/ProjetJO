@@ -76,13 +76,13 @@ public class InscriptionControlleur {
         Image image = imageView.getImage();
 
         // Inscrire l'utilisateur dans la base de données
-        //inscrireUtilisateur(sexe, nom, prenom, age, role, email, password, image);
+        inscrireUtilisateur(sexe, nom, prenom, age, role, email, password, image);
 
         redirectionConnexion();
     }
 
     Image defaultImage = new Image(getClass().getResource("/Images/png-transparent-default-avatar-thumbnail.png").toExternalForm());
-    /*
+
     private void inscrireUtilisateur(String sexe, String nom, String prenom, String age, String role, String email, String password, Image image) {
         DB db = new DB();
         Connection connection = db.getConnection();
@@ -121,7 +121,7 @@ public class InscriptionControlleur {
             }
         }
     }
-    */
+
     private void redirectionConnexion()
     {
         try {
