@@ -38,21 +38,37 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="800" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
   <tabs>
     <Tab text="Athlètes">
       <content>
-        <AnchorPane prefHeight="800" prefWidth="800" minHeight="0.0" minWidth="0.0">
-               <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="341.0" prefWidth="572.0">
-                    <columns>
-                      <TableColumn prefWidth="143.0" text="Prénom" />
-                      <TableColumn prefWidth="135.0" text="Nom" />
-                        <TableColumn prefWidth="126.0" text="Nationalité" />
-                        <TableColumn prefWidth="167.0" text="Discipline" />
-                    </columns>
-                  </TableView>
-               </children></AnchorPane>
+          <AnchorPane fx:id="topBar" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                  <ImageView fx:id="profileImageView" fitHeight="50.0" fitWidth="50.0" layoutX="717.0" layoutY="21.0" />
+                  <Label fx:id="AthleteButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAthlete" text="Athlètes" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+                      <font>
+                          <Font size="24.0" />
+                      </font>
+                  </Label>
+                  <Label fx:id="EvenementButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadEvenement" text="Evenements" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="0.0">
+                      <font>
+                          <Font size="24.0" />
+                      </font>
+                  </Label>
+                  <Label fx:id="DisciplinesButton" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadDiscipline" text="Disciplines" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+                      <font>
+                          <Font size="24.0" />
+                      </font>
+                  </Label>
+                  <Label fx:id="AcceuileButton" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAthlete" text="Acceuil" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
+                      <font>
+                          <Font size="24.0" />
+                      </font>
+                  </Label>
+              </children></AnchorPane>
       </content>
     </Tab>
     <Tab text="Disciplines">

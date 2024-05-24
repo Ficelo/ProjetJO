@@ -20,6 +20,8 @@ public class Scrapping {
 
         ArrayList<PaysScrapping> pays = getLiensPays(doc, false);
 
+        // Pour les athlètes ajouter un truc pour détecter quand y'a plusieurs athlètes dans la même case
+
         for (PaysScrapping pay : pays) {
             doc = Jsoup.connect(pay.getUrl()).get();
 
@@ -76,13 +78,30 @@ public class Scrapping {
 
 
                         if (tds.size() > athleteColumnIndex && tds.size() > eventColumnIndex) {
-                            String athlete = tds.get(athleteColumnIndex).text().trim();
+                            String athleteCell = tds.get(athleteColumnIndex).text().trim();
                             String event = tds.get(eventColumnIndex).text().trim();
 
-                            if (!athlete.isEmpty() && !athlete.equals("*") && !athlete.equals("0") && !athlete.equals("—") && !athlete.equals("--")) {
-                                System.out.println(athlete + " - " + event);
+                            if (!athleteCell.isEmpty() && !athleteCell.equals("*") && !athleteCell.equals("0") && !athleteCell.equals("—") && !athleteCell.equals("--")) {
+                                String[] athletes = athleteCell.split(" ");
+                                String[] athletesComplte = new String[athletes.length / 2];
+
+                                int a = 0;
+                                for (int i = 0; i < athletes.length; i++) {
+                                    if (i % 2 != 0){
+
+                                    } else {
+
+                                    }
+                                }
+
+                                for(String athlete : athletesComplte) {
+                                    if (!athlete.isEmpty()) {
+                                        System.out.println(athlete + " - " + event);
+                                    }
+                                }
                             }
                         }
+
                     }
                 }
             }

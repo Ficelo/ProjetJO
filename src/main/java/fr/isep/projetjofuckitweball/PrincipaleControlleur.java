@@ -24,6 +24,7 @@ public class PrincipaleControlleur {
     public Label AthleteButton;
     public Label EvenementButton;
     public Label DisciplinesButton;
+    public Label AcceuilButton;
     @FXML
     private ImageView bannerView;
     @FXML
@@ -41,9 +42,13 @@ public class PrincipaleControlleur {
         AthleteButton.setStyle("-fx-text-fill: white;");
         EvenementButton.setStyle("-fx-text-fill: white;");
         DisciplinesButton.setStyle("-fx-text-fill: white;");
+        AcceuilButton.setStyle("-fx-text-fill: white;");
 
         // /!\ /!\ /!\ /!\ /!\
         // Ça c'est vraiment une solution caca il faudrait que quelqu'un pige comment utiliser les fichiers CSS
+        // Je vais probablement faire une classe à part aussi
+
+
         AthleteButton.setOnMouseEntered(event -> {
             AthleteButton.setStyle("-fx-background-color: #8672d8; -fx-text-fill: white;");
         });
@@ -66,6 +71,14 @@ public class PrincipaleControlleur {
 
         DisciplinesButton.setOnMouseExited(event -> {
             DisciplinesButton.setStyle("-fx-background-color: #2E1D74; -fx-text-fill: white;");
+        });
+
+        AcceuilButton.setOnMouseEntered(event -> {
+            AcceuilButton.setStyle("-fx-background-color: #8672d8; -fx-text-fill: white;");
+        });
+
+        AcceuilButton.setOnMouseExited(event -> {
+            AcceuilButton.setStyle("-fx-background-color: #2E1D74; -fx-text-fill: white;");
         });
 
         Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
@@ -152,5 +165,22 @@ public class PrincipaleControlleur {
             e.printStackTrace();
         }
 
+    }
+
+    public void loadAcceuil(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Principale.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) AcceuilButton.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
