@@ -21,6 +21,8 @@ public class HelloApplication extends Application {
         Image icon = new Image(getClass().getResource("/Images/chague.jpeg").toExternalForm());
         stage.getIcons().add(icon);
 
+        stage.setResizable(false);
+
         stage.setScene(scene);
         stage.show();
     }
