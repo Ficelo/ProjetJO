@@ -4,6 +4,7 @@ module fr.isep.projetjofuckitweball {
     requires java.sql;
     requires mysql.connector.j;
     requires org.jsoup;
+    requires java.desktop;
 
 
     opens fr.isep.projetjofuckitweball to javafx.fxml;

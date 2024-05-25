@@ -1,61 +1,43 @@
 package fr.isep.projetjofuckitweball;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class PrincipaleControlleur {
-    public AnchorPane topBar;
-    public Label AthleteButton;
-    public Label EvenementButton;
-    public Label DisciplinesButton;
     public Label AcceuilButton;
-    @FXML
-    private ImageView bannerView;
-    @FXML
-    private Connection connection;
+    public Label SportButton;
+    public Label PaysButton;
+    public Label AdministrationButton;
+    public Label RetourButton;
 
-    @FXML
-    private ImageView profileImageView;
-
-    @FXML private ListView listView;
-
+    /*
     public void initialize() {
         topBar.setStyle("-fx-background-color: #2E1D74;");
-        AthleteButton.setStyle("-fx-text-fill: white;");
-        EvenementButton.setStyle("-fx-text-fill: white;");
+        SportButton.setStyle("-fx-text-fill: white;");
+        PaysButton.setStyle("-fx-text-fill: white;");
         DisciplinesButton.setStyle("-fx-text-fill: white;");
         AcceuilButton.setStyle("-fx-text-fill: white;");
 
-        AthleteButton.setOnMouseEntered(event -> {
-            AthleteButton.setStyle("-fx-background-color: #8672d8; -fx-text-fill: white;");
+        SportButton.setOnMouseEntered(event -> {
+            SportButton.setStyle("-fx-background-color: #8672d8; -fx-text-fill: white;");
         });
 
-        AthleteButton.setOnMouseExited(event -> {
-            AthleteButton.setStyle("-fx-background-color: #2E1D74; -fx-text-fill: white;");
+        SportButton.setOnMouseExited(event -> {
+            SportButton.setStyle("-fx-background-color: #2E1D74; -fx-text-fill: white;");
         });
 
-        EvenementButton.setOnMouseEntered(event -> {
-            EvenementButton.setStyle("-fx-background-color: #8672d8; -fx-text-fill: white;");
+        PaysButton.setOnMouseEntered(event -> {
+            PaysButton.setStyle("-fx-background-color: #8672d8; -fx-text-fill: white;");
         });
 
-        EvenementButton.setOnMouseExited(event -> {
-            EvenementButton.setStyle("-fx-background-color: #2E1D74; -fx-text-fill: white;");
+        PaysButton.setOnMouseExited(event -> {
+            PaysButton.setStyle("-fx-background-color: #2E1D74; -fx-text-fill: white;");
         });
 
         DisciplinesButton.setOnMouseEntered(event -> {
@@ -109,15 +91,15 @@ public class PrincipaleControlleur {
             e.printStackTrace();
         }
     }
-
-    public void loadDiscipline(MouseEvent mouseEvent) {
+*/
+    public void loadConnexion(MouseEvent mouseEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Discipline.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             Parent root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
 
-            Stage stage = (Stage) EvenementButton.getScene().getWindow();
+            Stage stage = (Stage) AdministrationButton.getScene().getWindow();
 
             stage.setScene(scene);
             stage.show();
@@ -126,14 +108,14 @@ public class PrincipaleControlleur {
         }
     }
 
-    public void loadEvenement(MouseEvent mouseEvent) {
+    public void loadSport(MouseEvent mouseEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Discipline.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Sports.fxml"));
             Parent root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
 
-            Stage stage = (Stage) EvenementButton.getScene().getWindow();
+            Stage stage = (Stage) SportButton.getScene().getWindow();
 
             stage.setScene(scene);
             stage.show();
@@ -142,14 +124,14 @@ public class PrincipaleControlleur {
         }
     }
 
-    public void loadAthlete(MouseEvent mouseEvent) {
+    public void loadPays(MouseEvent mouseEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Athlete.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Pays.fxml"));
             Parent root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
 
-            Stage stage = (Stage) AthleteButton.getScene().getWindow();
+            Stage stage = (Stage) PaysButton.getScene().getWindow();
 
             stage.setScene(scene);
             stage.show();
@@ -165,12 +147,16 @@ public class PrincipaleControlleur {
 
             Scene scene = new Scene(root);
 
-            Stage stage = (Stage) AcceuilButton.getScene().getWindow();
+            Stage stage = (Stage) RetourButton.getScene().getWindow();
 
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void loadRetour(MouseEvent mouseEvent) {
+        loadAcceuil(mouseEvent);
     }
 }

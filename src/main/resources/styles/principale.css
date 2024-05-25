@@ -21,3 +21,11 @@
 .list-view {
     -fx-background-color: red;
 }
+
+.barreLaterale {
+    -fx-background-color: #D7C378;
+}
+
+.image-Acceuil {
+    -fx-background-radius: 10px;
+}

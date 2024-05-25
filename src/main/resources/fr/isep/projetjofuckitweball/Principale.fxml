@@ -1,39 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800" prefWidth="800" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.PrincipaleControlleur">
-
-    <ImageView fx:id="bannerView" fitHeight="100.0" fitWidth="800.0" layoutY="95.0" AnchorPane.bottomAnchor="605.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
-   <AnchorPane fx:id="topBar" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane prefHeight="800" prefWidth="1000.0" stylesheets="@../../../styles/principale.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.PrincipaleControlleur">
+       <ImageView fx:id="profileImageView" fitHeight="100.0" fitWidth="100.0" layoutX="947.0" layoutY="2.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <image>
+         <Image url="@../../../Images/Logo_JO_d'été_-_Paris_2024.svg.png" />
+      </image>
+   </ImageView>
+   <VBox id="barreLaterale" prefHeight="200.0" prefWidth="100.0" styleClass="barreLaterale" stylesheets="@../../../styles/principale.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
       <children>
-             <ImageView fx:id="profileImageView" fitHeight="50.0" fitWidth="50.0" layoutX="717.0" layoutY="21.0" />
-         <Label fx:id="AthleteButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAthlete" text="Athlètes" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+         <Label fx:id="AcceuilButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAcceuil" prefHeight="75.0" prefWidth="200.0" text="Acceuil" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font size="24.0" />
+            </font>
+            <VBox.margin>
+               <Insets top="25.0" />
+            </VBox.margin>
+         </Label>
+         <Label fx:id="SportButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadSport" prefHeight="75.0" prefWidth="200.0" text="Sports" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+         <Label fx:id="PaysButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadPays" prefHeight="75.0" prefWidth="200.0" text="Pays" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label fx:id="EvenementButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadEvenement" text="Evenements" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="0.0">
+         <Label fx:id="AdministrationButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadConnexion" prefHeight="75.0" prefWidth="200.0" text="Administration" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label fx:id="DisciplinesButton" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadDiscipline" text="Disciplines" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+         <Label fx:id="RetourButton" onMouseClicked="#loadRetour" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="200.0" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
             <font>
-               <Font size="24.0" />
+               <Font size="25.0" />
             </font>
+            <VBox.margin>
+               <Insets top="375.0" />
+            </VBox.margin>
          </Label>
-         <Label fx:id="AcceuilButton" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAcceuil" text="Acceuil" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
-            <font>
-               <Font size="24.0" />
-            </font>
-         </Label>
-      </children></AnchorPane>
-   <ListView fx:id="listView" layoutX="390.0" layoutY="242.0" prefHeight="573.0" prefWidth="422.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="242.0" />
+      </children>
+   </VBox>
+   <ImageView id="imageAcceuil" fitHeight="512.0" fitWidth="724.0" layoutX="240.0" layoutY="260.0" pickOnBounds="true" styleClass="image-Acceuil">
+      <image>
+         <Image url="@../../../Images/6db39559f747e0f1053aa6446f413ae46fbba34b.jpg" />
+      </image>
+   </ImageView>
+   <Text layoutX="224.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JEUX OLYMPIQUES">
+      <font>
+         <Font size="40.0" />
+      </font>
+   </Text>
+   <Text layoutX="224.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PARIS 2024">
+      <font>
+         <Font size="50.0" />
+      </font>
+   </Text>
 
 
 </AnchorPane>

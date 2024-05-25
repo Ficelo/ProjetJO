@@ -1,0 +1,15 @@
+.case {
+    -fx-background-color: #F6F4F4;
+    -fx-background-radius: 10px;
+}
+
+.fond {
+    -fx-background-color: white;
+}
+
+.barre-recherche {
+    -fx-background-color: #F6F4F4;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+}

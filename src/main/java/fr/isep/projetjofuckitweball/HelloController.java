@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -28,12 +29,17 @@ private PasswordField passwordField;
     private Hyperlink signUpLink;
 @FXML
 private Button connex;
+    public Label AcceuilButton;
+    public Label SportButton;
+    public Label PaysButton;
+    public Label AdministrationButton;
+    public Label RetourButton;
 
 
 
     public void initialize() {
-        Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
-        bannerView.setImage(bannerImage);
+        //Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
+        //bannerView.setImage(bannerImage);
 
         initializeDB();
         signUpLink.setOnAction(event -> {
@@ -61,6 +67,7 @@ private Button connex;
     private void loginUser() {
         String email = emailField.getText();
         String password = passwordField.getText();
+
 
         // Vérifier si les champs sont vides
         if (email.isEmpty() || password.isEmpty()) {
@@ -120,19 +127,15 @@ private Button connex;
     private void redirectionConnexion()
     {
         try {
-            // Charger le fichier FXML de la page d'inscription
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Principale.fxml"));
-            Parent root = loader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Administration.fxml"));
+            Parent root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) connex.getScene().getWindow();
-            stage.close();
 
-            Stage PrincipaleStage = new Stage();
-            PrincipaleStage.setScene(scene);
-            PrincipaleStage.show();
-
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -144,5 +147,73 @@ private Button connex;
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    public void loadConnexion(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) AdministrationButton.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadSport(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Sports.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) SportButton.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadPays(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Pays.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) PaysButton.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadAcceuil(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Principale.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) RetourButton.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadRetour(MouseEvent mouseEvent) {
+        loadAcceuil(mouseEvent);
     }
 }
