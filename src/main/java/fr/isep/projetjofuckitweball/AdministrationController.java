@@ -23,6 +23,7 @@ public class AdministrationController {
     public Label AdministrationButton;
     public Label RetourButton;
     public Button connex;
+    private String retourDestination = "";
 
     private Connection connection;
     @FXML private TableView<PaysScrapping> tableDiscipline;
@@ -35,8 +36,6 @@ public class AdministrationController {
     @FXML private TableColumn<AthleteScrapping, String> AthleteSport;
     @FXML private TableColumn<AthleteScrapping, String> AthleteEvent;
     @FXML private TableColumn<AthleteScrapping, String> AthleteNationalite;
-
-
 
     public void initialize() {
         initializeDB();
@@ -124,8 +123,14 @@ public class AdministrationController {
 
             Stage stage = (Stage) AdministrationButton.getScene().getWindow();
 
+
+            HelloController controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Administration");
+
             stage.setScene(scene);
             stage.show();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -140,8 +145,14 @@ public class AdministrationController {
 
             Stage stage = (Stage) SportButton.getScene().getWindow();
 
+
+            SportController controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Administration");
+
             stage.setScene(scene);
             stage.show();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -156,8 +167,14 @@ public class AdministrationController {
 
             Stage stage = (Stage) PaysButton.getScene().getWindow();
 
+            PaysController controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Administration");
+
             stage.setScene(scene);
             stage.show();
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -172,8 +189,13 @@ public class AdministrationController {
 
             Stage stage = (Stage) RetourButton.getScene().getWindow();
 
+            PrincipaleControlleur controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Administration");
+
             stage.setScene(scene);
             stage.show();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -184,5 +206,9 @@ public class AdministrationController {
     }
 
     public void loginUser(ActionEvent actionEvent) {
+    }
+
+    public void updateRetour(String retourDest){
+        this.retourDestination = retourDest;
     }
 }

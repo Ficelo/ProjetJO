@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -20,6 +21,7 @@ public class SportController {
     public Label RetourButton;
     public ImageView imageSport;
     public Text SportTexte;
+    private String retourDestination = "";
 
     public void loadConnexion(MouseEvent mouseEvent) {
         try {
@@ -30,8 +32,14 @@ public class SportController {
 
             Stage stage = (Stage) AdministrationButton.getScene().getWindow();
 
+            HelloController controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Sports");
+
             stage.setScene(scene);
             stage.show();
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,8 +54,14 @@ public class SportController {
 
             Stage stage = (Stage) SportButton.getScene().getWindow();
 
+            SportsController controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Sports");
+
             stage.setScene(scene);
             stage.show();
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,8 +76,12 @@ public class SportController {
 
             Stage stage = (Stage) PaysButton.getScene().getWindow();
 
+            PaysController controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Sports");
+
             stage.setScene(scene);
             stage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,8 +96,14 @@ public class SportController {
 
             Stage stage = (Stage) RetourButton.getScene().getWindow();
 
+            PrincipaleControlleur controlleur = fxmlLoader.getController();
+            controlleur.updateRetour("Sports");
+
             stage.setScene(scene);
             stage.show();
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -91,6 +115,14 @@ public class SportController {
 
     public void updateSportTexte(String text){
         SportTexte.setText(text);
+    }
+
+    public void updateSportImage(Image image){
+        imageSport.setImage(image);
+    }
+
+    public void updateRetour(String retourDest){
+        this.retourDestination = retourDest;
     }
 
 }

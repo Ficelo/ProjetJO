@@ -27,7 +27,7 @@
    </ImageView>
    <VBox id="barreLaterale" prefHeight="200.0" prefWidth="100.0" styleClass="barreLaterale" stylesheets="@../../../styles/principale.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
       <children>
-         <Label fx:id="AcceuilButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAcceuil" prefHeight="75.0" prefWidth="200.0" text="Acceuil" textAlignment="CENTER" textFill="WHITE">
+         <Label fx:id="AcceuilButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAcceuil" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Acceuil" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="24.0" />
             </font>
@@ -35,22 +35,22 @@
                <Insets top="25.0" />
             </VBox.margin>
          </Label>
-         <Label fx:id="SportButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadSport" prefHeight="75.0" prefWidth="200.0" text="Sports" textAlignment="CENTER" textFill="WHITE">
+         <Label fx:id="SportButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadSport" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Sports" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="25.0" />
             </font>
          </Label>
-         <Label fx:id="PaysButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadPays" prefHeight="75.0" prefWidth="200.0" text="Pays" textAlignment="CENTER" textFill="WHITE">
+         <Label fx:id="PaysButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadPays" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Pays" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label fx:id="AdministrationButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadConnexion" prefHeight="75.0" prefWidth="200.0" text="Administration" textAlignment="CENTER" textFill="WHITE">
+         <Label fx:id="AdministrationButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadConnexion" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Administration" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label fx:id="RetourButton" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#loadRetour" prefHeight="75.0" prefWidth="200.0" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
+         <Label fx:id="RetourButton" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#loadRetour" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="25.0" />
             </font>
