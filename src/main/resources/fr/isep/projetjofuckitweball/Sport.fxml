@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" styleClass="fond" stylesheets="@../../../styles/sports.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.SportController">
+   <children>
+      <VBox id="barreLaterale" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" styleClass="barreLaterale" stylesheets="@../../../styles/principale.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="AcceuilButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAcceuil" prefHeight="75.0" prefWidth="200.0" text="Acceuil" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="SportButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadSport" prefHeight="75.0" prefWidth="200.0" text="Sports" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="PaysButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadPays" prefHeight="75.0" prefWidth="200.0" text="Pays" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="AdministrationButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadConnexion" prefHeight="75.0" prefWidth="200.0" text="Administration" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="RetourButton" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#loadRetour" prefHeight="75.0" prefWidth="200.0" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="375.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <ImageView fx:id="profileImageView" fitHeight="100.0" fitWidth="100.0" layoutX="957.0" layoutY="12.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <image>
+            <Image url="@../../../Images/Logo_JO_d'été_-_Paris_2024.svg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageSport" fitHeight="80.0" fitWidth="80.0" layoutX="24.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="220.0">
+         <image>
+            <Image url="@../../../Images/Open_water_swimming_pictogram.svg.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="SportTexte" layoutX="330.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYS" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+      <ScrollPane layoutX="225.0" layoutY="119.0" prefHeight="663.0" prefWidth="755.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="661.0" prefWidth="752.0" />
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

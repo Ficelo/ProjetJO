@@ -12,7 +12,6 @@ import java.util.Objects;
 public class Scrapping {
 
 
-
     public static <IOException> void main(String[] args) throws java.io.IOException {
 
         Document doc;
@@ -128,7 +127,23 @@ public class Scrapping {
             String lien = "https://en.wikipedia.org" + Objects.requireNonNull(p.select("a").first()).attr("href");
             String nom = Objects.requireNonNull(p.text()).trim().replaceAll(" \\(\\d+\\)", "");
             pays.add(new PaysScrapping(nom,lien));
+
+            String requete = "INSERT INTO pays (nom) VALUES ('" +
+                    nom + "');";
+
+            try {
+                FileWriter writer = new FileWriter("insert_queries_pays.sql", true);
+                writer.write(requete + "\n");
+                writer.close();
+                System.out.println("SQL statement added to file.");
+            } catch (IOException e) {
+                System.out.println("An error occurred while writing to the file.");
+                e.printStackTrace();
+            }
+
         }
+
+
 
         if(verbose) {
             for( PaysScrapping p : pays){

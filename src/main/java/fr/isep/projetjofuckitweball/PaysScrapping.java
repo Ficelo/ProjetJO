@@ -10,6 +10,10 @@ public class PaysScrapping {
         this.url = url;
     }
 
+    public PaysScrapping(String nom) {
+        this.nom = nom;
+    }
+
     @Override
     public String toString() {
         return nom + " : \n" + url + "\n";

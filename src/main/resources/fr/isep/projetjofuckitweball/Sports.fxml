@@ -76,7 +76,7 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Aquatics" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Open_water_swimming_pictogram.svg.png" />
                      </image>
@@ -85,7 +85,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="1">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Archery" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Archery_pictogram.svg.png" />
                      </image>
@@ -94,7 +94,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="2">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Volleyball" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Volleyball_(indoor)_pictogram.png" />
                      </image>
@@ -103,7 +103,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="3">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Basketball" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Basketball_pictogram.png" />
                      </image>
@@ -112,7 +112,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="4">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Boxing" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Boxing_pictogram.png" />
                      </image>
@@ -121,7 +121,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="5">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Breaking" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Breakdancing_pictogram.svg.png" />
                      </image>
@@ -130,7 +130,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Canoeing" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Canoeing_(slalom)_pictogram.svg.png" />
                      </image>
@@ -139,7 +139,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Cycling" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Cycling_(road)_pictogram.svg.png" />
                      </image>
@@ -148,7 +148,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Equestrian" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Equestrian_pictogram.svg.png" />
                      </image>
@@ -157,7 +157,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Fencing" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Fencing_pictogram.svg.png" />
                      </image>
@@ -166,7 +166,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Field_hockey" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Field_hockey_pictogram.svg.png" />
                      </image>
@@ -175,7 +175,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Football" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Football_pictogram.png" />
                      </image>
@@ -184,7 +184,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Golf" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Golf_pictogram.svg.png" />
                      </image>
@@ -193,7 +193,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Gymnastics" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Gymnastics_(artistic)_pictogram.svg.png" />
                      </image>
@@ -202,7 +202,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Handball" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Handball_pictogram.svg.png" />
                      </image>
@@ -211,7 +211,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Judo" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Judo_pictogram.svg.png" />
                      </image>
@@ -220,7 +220,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Modern_pentathlon" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Modern_pentathlon_pictogram.svg.png" />
                      </image>
@@ -229,7 +229,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="5" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Rowing" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Rowing_pictogram.svg.png" />
                      </image>
@@ -238,7 +238,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Rugby_sevens" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Rugby_sevens_pictogram.svg.png" />
                      </image>
@@ -247,7 +247,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Sailing" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Sailing_pictogram.svg.png" />
                      </image>
@@ -256,7 +256,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Shooting" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Shooting_pictogram.png" />
                      </image>
@@ -265,7 +265,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Skateboarding" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Skateboarding_pictogram.svg.png" />
                      </image>
@@ -274,7 +274,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Sport_climbing" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Climbing_pictogram.svg.png" />
                      </image>
@@ -283,7 +283,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Surfing" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Surfing_pictogram.svg.png" />
                      </image>
@@ -292,7 +292,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Table_tennis" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Table_tennis_pictogram.png" />
                      </image>
@@ -301,7 +301,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Taekwondo" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Taekwondo_pictogram.png" />
                      </image>
@@ -310,7 +310,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Tennis" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Tennis_pictogram.png" />
                      </image>
@@ -319,7 +319,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Triathlon" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/Triathlon_pictogram.svg.png" />
                      </image>
@@ -328,7 +328,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Badminton" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Badminton_pictogram.svg.png" />
                      </image>
@@ -337,7 +337,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="case" stylesheets="@../../../styles/sports.css" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Wrestling" fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSport">
                      <image>
                         <Image url="@../../../Images/40px-Wrestling_pictogram.png" />
                      </image>

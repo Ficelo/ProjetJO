@@ -69,15 +69,15 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="525.0" prefWidth="750.0">
+                        <TableView fx:id="tableAthlete" prefHeight="525.0" prefWidth="750.0">
                           <columns>
-                            <TableColumn prefWidth="99.05570983886719" text="Nom" />
-                            <TableColumn prefWidth="103.44430541992188" text="Prenom" />
-                              <TableColumn prefWidth="65.28094482421875" text="Age" />
-                              <TableColumn prefWidth="79.42703247070312" text="Sexe" />
-                              <TableColumn prefWidth="141.88604736328125" text="Sport" />
-                              <TableColumn prefWidth="138.6138916015625" text="Event" />
-                              <TableColumn prefWidth="123.77972412109375" text="Nationalite" />
+                            <TableColumn fx:id="AthleteNom" prefWidth="99.05570983886719" text="Nom" />
+                            <TableColumn fx:id="AthletePrenom" prefWidth="103.44430541992188" text="Prenom" />
+                              <TableColumn fx:id="AthleteAge" prefWidth="65.28094482421875" text="Age" />
+                              <TableColumn fx:id="AthleteSexe" prefWidth="79.42703247070312" text="Sexe" />
+                              <TableColumn fx:id="AthleteSport" prefWidth="141.88604736328125" text="Sport" />
+                              <TableColumn fx:id="AthleteEvent" prefWidth="138.6138916015625" text="Event" />
+                              <TableColumn fx:id="AthleteNationalite" prefWidth="123.77972412109375" text="Nationalite" />
                           </columns>
                         </TableView>
                      </children>
@@ -88,9 +88,9 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="525.0" prefWidth="750.0">
+                        <TableView prefHeight="525.0" prefWidth="750.0" fx:id="tableDiscipline">
                            <columns>
-                              <TableColumn prefWidth="220.60023498535156" text="Nom" />
+                              <TableColumn fx:id="DisciplineNom" prefWidth="220.60023498535156" text="Nom" />
                            </columns>
                         </TableView>
                      </children>

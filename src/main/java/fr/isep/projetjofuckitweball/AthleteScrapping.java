@@ -4,18 +4,37 @@ public class AthleteScrapping {
 
     String nom;
     String prenom;
-    String discipline;
+    String sport;
     String age;
     String sexe;
     String role = "Athlete";
+    String nationalite;
+    String event;
 
-    public AthleteScrapping(String nom, String prenom, String discipline, String age, String sexe, String role) {
+    public AthleteScrapping(String nom, String prenom, String sport, String age, String sexe, String nationalite, String event) {
         this.nom = nom;
         this.prenom = prenom;
-        this.discipline = discipline;
+        this.sport = sport;
         this.age = age;
         this.sexe = sexe;
-        this.role = role;
+        this.nationalite = nationalite;
+        this.event = event;
+    }
+
+    public String getNationalite() {
+        return nationalite;
+    }
+
+    public void setNationalite(String nationalite) {
+        this.nationalite = nationalite;
+    }
+
+    public String getEvent() {
+        return event;
+    }
+
+    public void setEvent(String event) {
+        this.event = event;
     }
 
     public AthleteScrapping(String nom, String prenom) {
@@ -39,12 +58,12 @@ public class AthleteScrapping {
         this.prenom = prenom;
     }
 
-    public String getDiscipline() {
-        return discipline;
+    public String getSport() {
+        return sport;
     }
 
-    public void setDiscipline(String discipline) {
-        this.discipline = discipline;
+    public void setSport(String sport) {
+        this.sport = sport;
     }
 
     public String getAge() {
