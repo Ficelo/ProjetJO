@@ -45,15 +45,15 @@ public class PaysController {
                                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PaysIndividuel.fxml"));
                                 Parent root = fxmlLoader.load();
 
+                                PaysIndividuelController controller = fxmlLoader.getController();
+                                controller.updateNomPays(barreRecherche.getText());
+
                                 Scene scene = new Scene(root);
 
                                 Stage stage = (Stage) RetourButton.getScene().getWindow();
 
                                 stage.setScene(scene);
                                 stage.show();
-
-                                PaysIndividuelController controller = fxmlLoader.getController();
-                                controller.updateNomPays(barreRecherche.getText());
 
                             } catch (IOException e) {
                                 e.printStackTrace();
