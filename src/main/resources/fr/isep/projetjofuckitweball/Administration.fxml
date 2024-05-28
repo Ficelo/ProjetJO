@@ -83,9 +83,9 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="525.0" prefWidth="750.0">
+                        <TableView fx:id="tableEvent" prefHeight="525.0" prefWidth="750.0">
                            <columns>
-                              <TableColumn prefWidth="175.82179260253906" text="Nom" />
+                              <TableColumn fx:id="EventNom" prefWidth="175.82179260253906" text="Nom" />
                               <TableColumn minWidth="0.0" prefWidth="206.88604736328125" text="Discipline" />
                            </columns>
                         </TableView>

@@ -3,6 +3,7 @@ package fr.isep.projetjofuckitweball;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,6 +33,12 @@ public class AdministrationController {
     @FXML private TableView<PaysScrapping> tableDiscipline;
     @FXML private TableColumn<PaysScrapping, String> DisciplineNom;
     @FXML private TableView<AthleteScrapping> tableAthlete;
+    @FXML
+    public TableView<Event> tableEvent;
+
+    @FXML
+    private TableColumn<Event, String> EventNom; // Assurez-vous que cette ligne existe
+
     @FXML private TableColumn<AthleteScrapping, String> AthleteNom;
     @FXML private TableColumn<AthleteScrapping, String> AthletePrenom;
     @FXML private TableColumn<AthleteScrapping, String> AthleteAge;
@@ -48,7 +55,10 @@ public class AdministrationController {
         initializeDB();
 
         DisciplineNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        initializePays();
+        EventNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+
+        //initializePays();
+        initializeDiscipline();
 
         AthleteNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         AthletePrenom.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -97,7 +107,7 @@ public class AdministrationController {
 
     }
 
-    public void initializePays(){
+    /*public void initializePays(){
         String query = "SELECT nom FROM pays";  // Sélectionne uniquement la colonne "nom"
         try {
             PreparedStatement statement = connection.prepareStatement(query);
@@ -115,9 +125,46 @@ public class AdministrationController {
             e.printStackTrace();
         }
     }
+    */
+    public void initializeDiscipline(){
+        String query = "SELECT nom FROM discipline";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            ObservableList<PaysScrapping> discipline = FXCollections.observableArrayList();
+
+            while (resultSet.next()) {
+                String nom = resultSet.getString("nom");
+                discipline.add(new PaysScrapping(nom));
+            }
+
+            tableDiscipline.setItems(discipline);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    /*public void initializeevent(){
+        String query = "SELECT nom FROM evenement";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            ObservableList<Event> events = FXCollections.observableArrayList();
+
+            while (resultSet.next()) {
+                String nom = resultSet.getString("nom");
+                events.add(new Event(nom));
+            }
+
+            tableEvent.setItems(events);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
 
     private void initializeDB() {
-        String databaseName = "app_java1";
+        String databaseName = "app_java";
         String databaseUser = "root";
         String databasePassword = "";
         String url = "jdbc:mysql://localhost/" + databaseName;
@@ -263,7 +310,6 @@ public class AdministrationController {
     public void add(ActionEvent actionEvent) {
         if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Athletes")) {
             showAlert(Alert.AlertType.INFORMATION, "athlete", "je suis biens sur les ath.");
-
             redirectionath();
 
         }
@@ -272,12 +318,14 @@ public class AdministrationController {
 
         if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Discipline")) {
             showAlert(Alert.AlertType.INFORMATION, "Discipline", "je suis biens sur les disc.");
+            redirectiondisc();
         }
 
 
 
         if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Evenement")) {
             showAlert(Alert.AlertType.INFORMATION, "event", "je suis biens sur les event.");
+            redirectionevent();
         }
         }
     private void showAlert(Alert.AlertType alertType, String title, String message) {
@@ -292,6 +340,51 @@ public class AdministrationController {
         try {
             // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Athletes.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
+            Scene scene = new Scene(root);
+
+            // Fermer la fenêtre actuelle de connexion
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void redirectiondisc()
+    {
+        try {
+            // Charger le fichier FXML de la page d'inscription
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Disc.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
+            Scene scene = new Scene(root);
+
+            // Fermer la fenêtre actuelle de connexion
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void redirectionevent()
+    {
+        try {
+            // Charger le fichier FXML de la page d'inscription
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("event.fxml"));
             Parent root = loader.load();
 
             // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML

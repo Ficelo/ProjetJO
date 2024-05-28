@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -39,6 +40,7 @@ public class AthletesControlleur {
 
     @FXML
     private TextField nationaliteField;
+    @FXML private Button connex;
 
     public void ajouterAthlete(ActionEvent mouseEvent){
 
@@ -89,6 +91,7 @@ public class AthletesControlleur {
                 }
             }
         }
+        redirectionadmin();
     }
 
 
@@ -110,6 +113,29 @@ public class AthletesControlleur {
             stage.show();
 
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void redirectionadmin()
+    {
+        try {
+            // Charger le fichier FXML de la page d'inscription
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Administration.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
+            Scene scene = new Scene(root);
+
+            // Fermer la fenêtre actuelle de connexion
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

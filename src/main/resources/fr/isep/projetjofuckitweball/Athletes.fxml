@@ -83,7 +83,7 @@
           <TextField fx:id="nationaliteField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
       </children>
    </VBox>
-    <Button alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="580.0" mnemonicParsing="false" onAction="#ajouterAthlete" prefHeight="88.0" prefWidth="452.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Ajouter l'Athlete" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="394.0" AnchorPane.topAnchor="580.0">
+    <Button fx:id="connex" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="580.0" mnemonicParsing="false" onAction="#ajouterAthlete" prefHeight="88.0" prefWidth="452.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Ajouter l'Athlete" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="394.0" AnchorPane.topAnchor="580.0">
         <font>
             <Font size="37.0" />
         </font>

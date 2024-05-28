@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.DiscControlleur">
+    <Line endX="100.0" startX="-100.0" />
+    <VBox id="barreLaterale" layoutX="10.0" layoutY="10.0" prefHeight="800.0" prefWidth="200.0" styleClass="barreLaterale" stylesheets="@../../../styles/principale.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Label fx:id="RetourButton" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#loadRetour" prefHeight="75.0" prefWidth="200.0" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font size="25.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="700.0" />
+                </VBox.margin>
+            </Label>
+        </children>
+    </VBox>
+   <VBox alignment="TOP_CENTER" layoutX="383.0" layoutY="211.0" prefHeight="284.0" prefWidth="480.0">
+      <children>
+          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom de la Discipline que tu veux ajouter : " wrappingWidth="399.99999999999983">
+              <font>
+                  <Font size="20.0" />
+              </font>
+          </Text>
+          <TextField fx:id="discField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+              <font>
+                  <Font size="20.0" />
+              </font>
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+          </TextField>
+          <Button fx:id="connex" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ajtDiscipline" prefHeight="68.0" prefWidth="272.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Ajouter une Discipline" textAlignment="CENTER" textFill="WHITE">
+              <font>
+                  <Font size="23.0" />
+              </font>
+              <effect>
+                  <Glow level="0.12" />
+              </effect>
+              <opaqueInsets>
+                  <Insets />
+              </opaqueInsets>
+              <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+              </cursor>
+            <VBox.margin>
+               <Insets top="30.0" />
+            </VBox.margin>
+          </Button>
+      </children>
+   </VBox>
+</AnchorPane>

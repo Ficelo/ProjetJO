@@ -165,7 +165,7 @@ public class PaysController {
     }
 
     public void loadRetour(MouseEvent mouseEvent) {
-        loadAcceuil(mouseEvent);
+        loadPays(mouseEvent);
     }
 
     public void updateRetour(String retourDest){

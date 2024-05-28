@@ -14,7 +14,7 @@ public class DB {
     {
         //test
 
-        String databaseName="app_java1";
+        String databaseName="app_java";
         String databaseUser="root";
         String databasePassword="";
         String url ="jdbc:mysql://localhost/"+databaseName;
