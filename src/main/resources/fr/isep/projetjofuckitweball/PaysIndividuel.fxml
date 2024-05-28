@@ -66,20 +66,20 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Circle fill="GOLD" layoutX="10.0" layoutY="10.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="55.0" />
-      <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="55.0">
+      <Circle fill="GOLD" layoutX="10.0" layoutY="10.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="55.0" />
+      <Text fx:id="texteGold" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="55.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Circle fill="SILVER" layoutX="10.0" layoutY="10.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="55.0" />
-      <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="55.0">
+      <Circle fill="SILVER" layoutX="10.0" layoutY="10.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="55.0" />
+      <Text fx:id="texteSilver" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="55.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Circle fill="#cd7f32" layoutX="10.0" layoutY="10.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="55.0" />
-      <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="55.0">
+      <Circle fill="#cd7f32" layoutX="10.0" layoutY="10.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="750.0" AnchorPane.topAnchor="55.0" />
+      <Text fx:id="texteBronze" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="55.0">
          <font>
             <Font size="20.0" />
          </font>

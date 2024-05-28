@@ -28,6 +28,9 @@ import java.util.HashMap;
 public class PaysIndividuelController {
 
     public VBox athleteContainer;
+    public Text texteGold;
+    public Text texteSilver;
+    public Text texteBronze;
     private Connection connection;
     public Label AcceuilButton;
     public Label SportButton;
@@ -36,6 +39,10 @@ public class PaysIndividuelController {
     public Label RetourButton;
     @FXML public Text nomPays;
     private String retourDestination;
+
+    private int totalBronze = 0;
+    private int totalSilver = 0;
+    private int totalGold = 0;
 
     public void initialize() {
 
@@ -247,12 +254,29 @@ public class PaysIndividuelController {
                 counts[0].setText(String.valueOf(goldMedals));
                 counts[1].setText(String.valueOf(silverMedals));
                 counts[2].setText(String.valueOf(bronzeMedals));
+
+                totalBronze += bronzeMedals;
+                totalSilver += silverMedals;
+                totalGold += goldMedals;
             }
 
             // Close the resultSet2 and statement2
             resultSet2.close();
             statement2.close();
         }
+
+        texteGold.setText(Integer.toString(totalGold));
+        texteSilver.setText(Integer.toString(totalSilver));
+        texteBronze.setText(Integer.toString(totalBronze));
+
+        String updatePaysQuery = "UPDATE pays SET gold = ?, silver = ?, bronze = ? WHERE nom = ?";
+        PreparedStatement statement3 = connection.prepareStatement(updatePaysQuery);
+        statement3.setInt(1, totalGold);
+        statement3.setInt(2, totalSilver);
+        statement3.setInt(3, totalBronze);
+        statement3.setString(4, pays);
+
+        statement3.executeUpdate();
 
     }
 
