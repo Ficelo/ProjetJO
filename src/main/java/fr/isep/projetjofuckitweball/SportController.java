@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -21,6 +22,7 @@ public class SportController {
     public Label RetourButton;
     public ImageView imageSport;
     public Text SportTexte;
+    public VBox athleteContainer;
     private String retourDestination = "";
 
     public void loadConnexion(MouseEvent mouseEvent) {
@@ -124,5 +126,6 @@ public class SportController {
     public void updateRetour(String retourDest){
         this.retourDestination = retourDest;
     }
+
 
 }
