@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PaysIndividuelController {
 
@@ -144,7 +146,7 @@ public class PaysIndividuelController {
         this.retourDestination = retourDest;
     }
 
-    public void updateNomPays(String text) {
+    public void updateNomPays(String text) throws SQLException {
         this.nomPays.setText(text);
         initializeDB();
 
@@ -155,6 +157,8 @@ public class PaysIndividuelController {
                 "INNER JOIN Nationalities n ON a.nationalite = n.nationality " +
                 "WHERE n.country = ?";
 
+        HashMap<String, Text[]> athletes = new HashMap<>();
+
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, pays);
@@ -162,7 +166,6 @@ public class PaysIndividuelController {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                // Retrieve athlete information and print
                 String nom = resultSet.getString("nom");
                 String prenom = resultSet.getString("prenom");
                 String age = resultSet.getString("age");
@@ -186,6 +189,8 @@ public class PaysIndividuelController {
                 Text bronzeCountText = new Text("0");
                 bronzeCountText.setFont(new Font(20.0));
 
+                athletes.put(nom, new Text[] {goldCountText, silverCountText, bronzeCountText});
+
                 Insets margin = new Insets(10.0);
 
                 HBox.setMargin(nomPrenomText, margin);
@@ -199,8 +204,6 @@ public class PaysIndividuelController {
 
                 HBox leftHBox = new HBox();
                 leftHBox.getChildren().addAll(nomPrenomText, sportText);
-
-
 
                 HBox rightHBox = new HBox();
                 rightHBox.getChildren().addAll(goldCircle, goldCountText, silverCircle, silverCountText, bronzeCircle, bronzeCountText);
@@ -218,6 +221,39 @@ public class PaysIndividuelController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        String query2 = "SELECT " +
+                "  a.id, " +
+                "  COUNT(CASE WHEN r.bronze = a.id THEN 1 END) AS bronze_medals, " +
+                "  COUNT(CASE WHEN r.silver = a.id THEN 1 END) AS silver_medals, " +
+                "  COUNT(CASE WHEN r.gold = a.id THEN 1 END) AS gold_medals " +
+                "FROM athletes a " +
+                "LEFT JOIN resultats r ON a.id = r.bronze OR a.id = r.silver OR a.id = r.gold " +
+                "WHERE a.nom = ?";
+
+        for(String nom : athletes.keySet()){
+            PreparedStatement statement2 = connection.prepareStatement(query2);
+            statement2.setString(1, nom);
+            ResultSet resultSet2 = statement2.executeQuery();
+
+            while (resultSet2.next()) {
+                int id = resultSet2.getInt("id");
+                int bronzeMedals = resultSet2.getInt("bronze_medals");
+                int silverMedals = resultSet2.getInt("silver_medals");
+                int goldMedals = resultSet2.getInt("gold_medals");
+                System.out.println(nom + " (ID: " + id + ") Bronze Medals: " + bronzeMedals + ", Silver Medals: " + silverMedals + ", Gold Medals: " + goldMedals);
+                // Update the corresponding Text[] array in the athletes HashMap
+                Text[] counts = athletes.get(nom);
+                counts[0].setText(String.valueOf(goldMedals));
+                counts[1].setText(String.valueOf(silverMedals));
+                counts[2].setText(String.valueOf(bronzeMedals));
+            }
+
+            // Close the resultSet2 and statement2
+            resultSet2.close();
+            statement2.close();
+        }
+
     }
 
 }
