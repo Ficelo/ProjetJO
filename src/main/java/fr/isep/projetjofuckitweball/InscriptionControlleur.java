@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -35,12 +36,13 @@ public class InscriptionControlleur {
     @FXML private PasswordField passwordField;
     @FXML private Button inscri;
     @FXML private Hyperlink linkRetourConnexion;
+    public Label RetourButton;
 
 
 
-    public void initialize() {
+    public void initialize() {/*
         Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
-        bannerView.setImage(bannerImage);
+        bannerView.setImage(bannerImage);*/
         }
 
     @FXML
@@ -126,7 +128,7 @@ public class InscriptionControlleur {
     {
         try {
             // Charger le fichier FXML de la page d'inscription
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             Parent root = loader.load();
 
             // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
@@ -148,5 +150,26 @@ public class InscriptionControlleur {
     public void retourConnexion() {
         redirectionConnexion();
     }
+    public void loadRetour(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de la page d'inscription
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
+            Scene scene = new Scene(root);
+
+            // Fermer la fenêtre actuelle de connexion
+            Stage stage = (Stage) RetourButton.getScene().getWindow();
+            stage.close();
+
+            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+}
 }
 

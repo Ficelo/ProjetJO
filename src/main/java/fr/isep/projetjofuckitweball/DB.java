@@ -2,16 +2,19 @@ package fr.isep.projetjofuckitweball;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 
 public class DB {
     public Connection DbLink;
 
+
     public Connection getConnection()
     {
         //test
 
-        String databaseName="app_java";
+        String databaseName="app_java1";
         String databaseUser="root";
         String databasePassword="";
         String url ="jdbc:mysql://localhost/"+databaseName;
@@ -26,4 +29,19 @@ public class DB {
         }
         return DbLink;
     }
+    public PreparedStatement prepareStatement(String query) throws SQLException {
+        return DbLink.prepareStatement(query);
+    }
+    public void closeConnection() {
+        try {
+            if (DbLink != null) {
+                DbLink.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }

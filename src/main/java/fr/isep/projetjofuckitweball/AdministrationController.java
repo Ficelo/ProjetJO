@@ -9,9 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.*;
 
@@ -36,6 +39,10 @@ public class AdministrationController {
     @FXML private TableColumn<AthleteScrapping, String> AthleteSport;
     @FXML private TableColumn<AthleteScrapping, String> AthleteEvent;
     @FXML private TableColumn<AthleteScrapping, String> AthleteNationalite;
+ @FXML   private ImageView profileImage;
+    @FXML
+    private TabPane tabPane;
+
 
     public void initialize() {
         initializeDB();
@@ -51,33 +58,43 @@ public class AdministrationController {
         AthleteEvent.setCellValueFactory(new PropertyValueFactory<>("event"));
         AthleteNationalite.setCellValueFactory(new PropertyValueFactory<>("nationalite"));
         initializeAthletes();
+        Improfile();
+
+
 
 
     }
 
     public void initializeAthletes(){
-        String query = "SELECT nom, prenom, age, sport, event, nationalite, sexe FROM athletes";  // Sélectionne uniquement la colonne "nom"
+        String query = "SELECT nom, prenom, age, sexe, sport, event, nationalite FROM athletes";
+
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
 
+            int count=0;
             ObservableList<AthleteScrapping> athletes = FXCollections.observableArrayList();
 
             while (resultSet.next()) {
                 String nom = resultSet.getString("nom");
                 String prenom = resultSet.getString("prenom");
                 String age = resultSet.getString("age");
+                String sexe = resultSet.getString("sexe");
                 String sport = resultSet.getString("sport");
                 String event = resultSet.getString("event");
                 String nationalite = resultSet.getString("nationalite");
-                String sexe = resultSet.getString("sexe");
-                athletes.add(new AthleteScrapping(nom, prenom, sport, age, sexe, nationalite, event));
+                athletes.add(new AthleteScrapping(nom, prenom, age, sexe, sport, event, nationalite));
+                count++; // Incrémente le compteur à chaque athlète récupéré
+
             }
+
+            System.out.println("nombre d'athletes "+ count);
 
             tableAthlete.setItems(athletes);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
     public void initializePays(){
@@ -100,7 +117,7 @@ public class AdministrationController {
     }
 
     private void initializeDB() {
-        String databaseName = "app_java";
+        String databaseName = "app_java1";
         String databaseUser = "root";
         String databasePassword = "";
         String url = "jdbc:mysql://localhost/" + databaseName;
@@ -205,10 +222,92 @@ public class AdministrationController {
         loadAcceuil(mouseEvent);
     }
 
-    public void loginUser(ActionEvent actionEvent) {
-    }
-
     public void updateRetour(String retourDest){
         this.retourDestination = retourDest;
     }
+
+    private void Improfile()
+    {
+        try {
+            DB db = new DB();
+            Connection connection = db.getConnection();
+            int userId = AuthService.getLoggedInUserId();
+
+            System.out.println("User ID: " + userId); // Vérification de l'ID utilisateur
+
+            if (userId != -1) {
+                String sql = "SELECT image FROM user WHERE id = ?";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setInt(1, userId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    byte[] imageData = resultSet.getBytes("image");
+                    ByteArrayInputStream bis = new ByteArrayInputStream(imageData);
+                    Image image = new Image(bis);
+                    profileImage.setImage(image);
+                }
+
+                resultSet.close();
+                statement.close();
+            } else {
+                System.out.println("Aucun utilisateur connecté.");
+            }
+
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void add(ActionEvent actionEvent) {
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Athletes")) {
+            showAlert(Alert.AlertType.INFORMATION, "athlete", "je suis biens sur les ath.");
+
+            redirectionath();
+
+        }
+
+
+
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Discipline")) {
+            showAlert(Alert.AlertType.INFORMATION, "Discipline", "je suis biens sur les disc.");
+        }
+
+
+
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Evenement")) {
+            showAlert(Alert.AlertType.INFORMATION, "event", "je suis biens sur les event.");
+        }
+        }
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    private void redirectionath()
+    {
+        try {
+            // Charger le fichier FXML de la page d'inscription
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Athletes.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
+            Scene scene = new Scene(root);
+
+            // Fermer la fenêtre actuelle de connexion
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

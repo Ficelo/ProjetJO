@@ -18,3 +18,23 @@
     -fx-background-radius: 20px;
     -fx-border-color: black;
 }
+/* Style pour le champ de sélection du sexe */
+#genderComboBox {
+    -fx-pref-width: 150px; /* Largeur personnalisée */
+    -fx-font-size: 16px; /* Taille de police */
+    -fx-background-color: #D7C378; /* Couleur de fond */
+    -fx-text-fill: white
+}
+
+#chooseImageButton {
+    -fx-pref-width: 200px; /* Largeur personnalisée */
+    -fx-font-size: 16px; /* Taille de police */
+    -fx-background-color: #D7C378; /* Couleur de fond jaune dorée */
+    -fx-text-fill: white; /* Couleur du texte */
+}
+
+/* Style pour l'image de profil */
+#imageView {
+    -fx-fit-width: 100px; /* Largeur de l'image */
+    -fx-fit-height: 100px; /* Hauteur de l'image */
+}

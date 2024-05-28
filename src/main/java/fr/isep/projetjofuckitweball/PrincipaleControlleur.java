@@ -4,10 +4,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import java.sql.Connection;
 
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PrincipaleControlleur {
     public Label AcceuilButton;
@@ -17,8 +24,9 @@ public class PrincipaleControlleur {
     public Label RetourButton;
     private String retourDestination = "";
 
-    /*
+/*
     public void initialize() {
+
         topBar.setStyle("-fx-background-color: #2E1D74;");
         SportButton.setStyle("-fx-text-fill: white;");
         PaysButton.setStyle("-fx-text-fill: white;");
@@ -62,7 +70,7 @@ public class PrincipaleControlleur {
 
         try {
             DB db = new DB();
-            connection = db.getConnection();
+            Connection connection = db.getConnection();
             int userId = AuthService.getLoggedInUserId();
 
             System.out.println("User ID: " + userId); // Vérification de l'ID utilisateur
