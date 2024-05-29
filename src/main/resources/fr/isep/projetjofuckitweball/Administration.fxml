@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" styleClass="fond" stylesheets="@../../../styles/sports.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.AdministrationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" styleClass="fond" stylesheets="@../../../styles/sports.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.AdministrationController">
    <children>
       <VBox id="barreLaterale" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" styleClass="barreLaterale" stylesheets="@../../../styles/principale.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -45,7 +54,7 @@
              </Label>
          </children>
       </VBox>
-      <TabPane  fx:id="tabPane" layoutX="209.0" layoutY="162.0" prefHeight="550.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="125.0">
+      <TabPane fx:id="tabPane" layoutX="209.0" layoutY="162.0" prefHeight="550.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="125.0">
         <tabs>
           <Tab text="Athletes">
             <content>
@@ -87,6 +96,22 @@
                            <columns>
                               <TableColumn fx:id="EventNom" prefWidth="175.82179260253906" text="Nom" />
                               <TableColumn minWidth="0.0" prefWidth="206.88604736328125" text="Discipline" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Résultats">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableEvent1" prefHeight="525.0" prefWidth="750.0">
+                           <columns>
+                              <TableColumn fx:id="EventNom1" prefWidth="175.82179260253906" text="Evenement" />
+                              <TableColumn minWidth="0.0" prefWidth="184.57955932617188" text="Médaillé Or" />
+                              <TableColumn minWidth="0.0" prefWidth="181.30462646484375" text="Médaillé Argent" />
+                              <TableColumn minWidth="0.0" prefWidth="207.69537353515625" text="Médaillé Bronze" />
                            </columns>
                         </TableView>
                      </children>

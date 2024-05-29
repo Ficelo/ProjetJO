@@ -7,10 +7,10 @@ import java.sql.SQLException;
 
 
 public class DB {
-    public Connection DbLink;
+    public static Connection DbLink;
 
 
-    public Connection getConnection()
+    public static Connection getConnection()
     {
         //test
 

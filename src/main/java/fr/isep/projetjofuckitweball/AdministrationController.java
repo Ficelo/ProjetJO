@@ -312,22 +312,37 @@ public class AdministrationController {
             showAlert(Alert.AlertType.INFORMATION, "athlete", "je suis biens sur les ath.");
             redirectionath();
 
-        }
-
-
-
-        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Discipline")) {
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Discipline")) {
             showAlert(Alert.AlertType.INFORMATION, "Discipline", "je suis biens sur les disc.");
             redirectiondisc();
-        }
-
-
-
-        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Evenement")) {
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Evenement")) {
             showAlert(Alert.AlertType.INFORMATION, "event", "je suis biens sur les event.");
             redirectionevent();
+        } else {
+            showAlert(Alert.AlertType.INFORMATION, "Résultat", "je suis biens sur les résultats.");
+            redirectionAjoutResultat();
         }
+
         }
+
+    private void redirectionAjoutResultat() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ajoutResultat.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

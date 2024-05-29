@@ -99,20 +99,15 @@ public class AthletesControlleur {
 
     public void loadRetour(MouseEvent mouseEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Principale.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Administration.fxml"));
             Parent root = fxmlLoader.load();
 
             Scene scene = new Scene(root);
 
-            Stage stage = (Stage) RetourButton.getScene().getWindow();
-
-            PrincipaleControlleur controlleur = fxmlLoader.getController();
-            controlleur.updateRetour("Administration");
+            Stage stage = (Stage) nomField.getScene().getWindow();
 
             stage.setScene(scene);
             stage.show();
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
