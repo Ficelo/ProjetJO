@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.modifAthleteControlleur">
+    <Line endX="100.0" startX="-100.0" />
+    <VBox alignment="TOP_CENTER" layoutX="360.0" layoutY="106.0" prefHeight="423.0" prefWidth="480.0">
+        <children>
+
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="       nom :" wrappingWidth="181.13671684265137">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <TextField fx:id="nomField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="       prénom : " wrappingWidth="185.1367244720459">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <TextField fx:id="prenomField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+                <children>
+                    <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="     age:" wrappingWidth="93.18359756469727">
+                                <font>
+                                    <Font size="20.0" />
+                                </font>
+                            </Text>
+                            <TextField fx:id="ageField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+                                <VBox.margin>
+                                    <Insets />
+                                </VBox.margin></TextField>
+                        </children>
+                        <HBox.margin>
+                            <Insets left="35.0" />
+                        </HBox.margin>
+                    </VBox>
+                    <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Sexe :" wrappingWidth="98.63672256469727">
+                                <font>
+                                    <Font size="20.0" />
+                                </font>
+                            </Text>
+                            <TextField fx:id="sexeField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+
+                        </children>
+                        <HBox.margin>
+                            <Insets left="200.0" />
+                        </HBox.margin>
+                    </VBox>
+                </children>
+            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sport :">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <TextField fx:id="sportField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement :">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <TextField fx:id="eventField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nationalité :">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <TextField fx:id="nationaliteField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+        </children>
+    </VBox>
+    <Button fx:id="connex" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="581.0" mnemonicParsing="false" onAction="#modifierAthlete" prefHeight="88.0" prefWidth="500.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Enregistrer les modification" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="581.0">
+        <font>
+            <Font size="37.0" />
+        </font>
+        <effect>
+            <Glow level="0.12" />
+        </effect>
+        <opaqueInsets>
+            <Insets />
+        </opaqueInsets>
+        <cursor>
+            <Cursor fx:constant="DEFAULT" />
+        </cursor>
+    </Button>
+    <VBox id="barreLaterale" layoutX="10.0" layoutY="10.0" prefHeight="800.0" prefWidth="200.0" styleClass="barreLaterale" stylesheets="@../../../styles/principale.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Label fx:id="RetourButton" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#loadRetour" prefHeight="75.0" prefWidth="200.0" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font size="25.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="700.0" />
+                </VBox.margin>
+            </Label>
+        </children>
+    </VBox>
+
+    <Text layoutX="333.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier le profil de  Athlete" wrappingWidth="587.36328125">
+        <font>
+            <Font size="45.0" />
+        </font>
+    </Text>
+</AnchorPane>

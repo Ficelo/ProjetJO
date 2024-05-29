@@ -69,7 +69,7 @@ public class AdministrationController {
         initializeDiscipline();
 
         AthleteNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        AthletePrenom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        AthletePrenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         AthleteAge.setCellValueFactory(new PropertyValueFactory<>("age"));
         AthleteSexe.setCellValueFactory(new PropertyValueFactory<>("sexe"));
         AthleteSport.setCellValueFactory(new PropertyValueFactory<>("sport"));
@@ -90,7 +90,34 @@ public class AdministrationController {
 
         Improfile();
 
+        // Ajouter un gestionnaire de double clic pour la table des athlètes
+        tableAthlete.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                AthleteScrapping selectedAthlete = tableAthlete.getSelectionModel().getSelectedItem();
+                //AthleteScrapping athlete = (AthleteScrapping) event.getSource();
+                if (selectedAthlete != null) {
+                    handleDoubleClickOnAthlete(selectedAthlete);
+                }
+            }
+        });
 
+        tableDiscipline.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                PaysScrapping selectedDiscipline = tableDiscipline.getSelectionModel().getSelectedItem();
+                if (selectedDiscipline != null) {
+                    handleDoubleClickOnDisc(selectedDiscipline);
+                }
+            }
+        });
+
+        tableEvent.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                EventScrapping selectedEvent = tableEvent.getSelectionModel().getSelectedItem();
+                if (selectedEvent != null) {
+                    handleDoubleClickOnEvent(selectedEvent);
+                }
+            }
+        });
 
 
     }
@@ -491,5 +518,72 @@ public class AdministrationController {
             e.printStackTrace();
         }
     }
+    private void handleDoubleClickOnAthlete(AthleteScrapping athlete) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("modifAthlete.fxml"));
+            Parent root = loader.load();
+
+            // Obtenez le contrôleur associé au fichier FXML
+            modifAthleteControlleur controller = loader.getController();
+
+            // Définir l'athlète sélectionné dans le contrôleur
+            controller.setAthlete(athlete);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleDoubleClickOnDisc(PaysScrapping discipline) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("modifDiscipline.fxml"));
+            Parent root = loader.load();
+
+            // Obtenez le contrôleur associé au fichier FXML
+            ModifDisciplineControlleur controller = loader.getController();
+
+            // Définir la discipline sélectionnée dans le contrôleur
+            controller.setDiscipline(discipline);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void handleDoubleClickOnEvent(EventScrapping event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifEvent.fxml"));
+            Parent root = loader.load();
+
+            // Obtenez le contrôleur associé au fichier FXML
+            ModifEventControlleur controller = loader.getController();
+
+            // Définir la discipline sélectionnée dans le contrôleur
+            controller.setEvent(event);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) connex.getScene().getWindow();
+            stage.close();
+
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
