@@ -112,7 +112,7 @@ public class SportController {
     }
 
     public void loadRetour(MouseEvent mouseEvent) {
-        loadAcceuil(mouseEvent);
+        loadSport(mouseEvent);
     }
 
     public void updateSportTexte(String text){

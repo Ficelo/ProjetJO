@@ -34,6 +34,8 @@ public class InscriptionControlleur {
     @FXML private TextField roleField;
     @FXML private TextField emailField;
     @FXML private PasswordField passwordField;
+    @FXML private PasswordField verifField;
+
     @FXML private Button inscri;
     @FXML private Hyperlink linkRetourConnexion;
     public Label RetourButton;
@@ -73,6 +75,15 @@ public class InscriptionControlleur {
         String role = roleField.getText();
         String email = emailField.getText();
         String password = passwordField.getText();
+        String confirmPassword = verifField.getText(); // Ajout du champ "Vérification de password"
+
+        if (!password.equals(confirmPassword)) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Les mots de passe ne correspondent pas.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+
 
         // Récupérer l'image sélectionnée par l'utilisateur
         Image image = imageView.getImage();

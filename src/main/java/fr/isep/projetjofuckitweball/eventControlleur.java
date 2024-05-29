@@ -57,20 +57,21 @@ public class eventControlleur {
 
     public void loadRetour(MouseEvent mouseEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Administration.fxml"));
-            Parent root = fxmlLoader.load();
+            // Charger le fichier FXML de la page d'inscription
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Administration.fxml"));
+            Parent root = loader.load();
 
+            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
+            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) RetourButton.getScene().getWindow();
+            stage.close();
 
-            PrincipaleControlleur controlleur = fxmlLoader.getController();
-            controlleur.updateRetour("Administration");
-
-            stage.setScene(scene);
-            stage.show();
-
-
+            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
+            Stage inscriptionStage = new Stage();
+            inscriptionStage.setScene(scene);
+            inscriptionStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
