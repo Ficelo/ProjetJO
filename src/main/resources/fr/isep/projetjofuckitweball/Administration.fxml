@@ -95,7 +95,7 @@
                         <TableView fx:id="tableEvent" prefHeight="525.0" prefWidth="750.0">
                            <columns>
                               <TableColumn fx:id="EventNom" prefWidth="175.82179260253906" text="Nom" />
-                              <TableColumn minWidth="0.0" prefWidth="206.88604736328125" text="Discipline" />
+                              <TableColumn fx:id="EventDiscipline" minWidth="0.0" prefWidth="206.88604736328125" text="Discipline" />
                            </columns>
                         </TableView>
                      </children>
@@ -106,12 +106,12 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tableEvent1" prefHeight="525.0" prefWidth="750.0">
+                        <TableView fx:id="tableResultat" prefHeight="525.0" prefWidth="750.0">
                            <columns>
-                              <TableColumn fx:id="EventNom1" prefWidth="175.82179260253906" text="Evenement" />
-                              <TableColumn minWidth="0.0" prefWidth="184.57955932617188" text="Médaillé Or" />
-                              <TableColumn minWidth="0.0" prefWidth="181.30462646484375" text="Médaillé Argent" />
-                              <TableColumn minWidth="0.0" prefWidth="207.69537353515625" text="Médaillé Bronze" />
+                              <TableColumn fx:id="ResultatEvenement" prefWidth="175.82179260253906" text="Evenement" />
+                              <TableColumn fx:id="ResultatGold" minWidth="0.0" prefWidth="184.57955932617188" text="Médaillé Or" />
+                              <TableColumn fx:id="ResultatSilver" minWidth="0.0" prefWidth="181.30462646484375" text="Médaillé Argent" />
+                              <TableColumn fx:id="ResultatBronze" minWidth="0.0" prefWidth="207.69537353515625" text="Médaillé Bronze" />
                            </columns>
                         </TableView>
                      </children>

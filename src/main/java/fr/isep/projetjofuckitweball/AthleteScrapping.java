@@ -22,7 +22,7 @@ public class AthleteScrapping {
     }
 
     public String getNationalite() {
-        return nationalite;
+        return this.nationalite;
     }
 
     public void setNationalite(String nationalite) {

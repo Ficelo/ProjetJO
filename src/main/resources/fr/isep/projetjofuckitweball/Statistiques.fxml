@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800" prefWidth="1000.0" stylesheets="@../../../styles/principale.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.StatistiquesController">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="image-Acceuil" stylesheets="@../../../styles/principale.css" AnchorPane.leftAnchor="237.0" AnchorPane.topAnchor="260.0" />
+      <ImageView fx:id="profileImageView" fitHeight="100.0" fitWidth="100.0" layoutX="947.0" layoutY="2.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <image>
+            <Image url="@../../../Images/Logo_JO_d'été_-_Paris_2024.svg.png" />
+         </image>
+      </ImageView>
+      <VBox id="barreLaterale" prefHeight="200.0" prefWidth="100.0" styleClass="barreLaterale" stylesheets="@../../../styles/principale.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="AcceuilButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAcceuil" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Acceuil" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="SportButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadSport" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Sports" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="PaysButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadPays" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Pays" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="AdministrationButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadConnexion" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Administration" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="RetourButton" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#loadRetour" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="375.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <Text layoutX="224.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JEUX OLYMPIQUES">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+      <Text layoutX="224.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PARIS 2024">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <LineChart fx:id="graphique" prefHeight="550.0" prefWidth="700.0" title="Evolution du TOP 5" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="200.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</AnchorPane>

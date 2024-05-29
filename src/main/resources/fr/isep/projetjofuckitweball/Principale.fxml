@@ -50,6 +50,11 @@
                <Font size="24.0" />
             </font>
          </Label>
+         <Label fx:id="StatistiquesButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadStatistiques" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="Statistiques" textAlignment="CENTER" textFill="WHITE">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
          <Label fx:id="RetourButton" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#loadRetour" prefHeight="75.0" prefWidth="200.0" styleClass="barreLaterale-label" stylesheets="@../../../styles/principale.css" text="&lt; Retour" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="25.0" />

@@ -27,6 +27,14 @@ public class AdministrationController {
     public Label AdministrationButton;
     public Label RetourButton;
     public Button connex;
+
+    @FXML private TableView<ResultatScrapping> tableResultat;
+    @FXML private TableColumn<ResultatScrapping, String> ResultatEvenement;
+    @FXML private TableColumn<ResultatScrapping, String> ResultatGold;
+    @FXML private TableColumn<ResultatScrapping, String> ResultatSilver;
+    @FXML private TableColumn<ResultatScrapping, String> ResultatBronze;
+
+
     private String retourDestination = "";
 
     private Connection connection;
@@ -34,10 +42,10 @@ public class AdministrationController {
     @FXML private TableColumn<PaysScrapping, String> DisciplineNom;
     @FXML private TableView<AthleteScrapping> tableAthlete;
     @FXML
-    public TableView<Event> tableEvent;
+    public TableView<EventScrapping> tableEvent;
 
-    @FXML
-    private TableColumn<Event, String> EventNom; // Assurez-vous que cette ligne existe
+    @FXML private TableColumn<EventScrapping, String> EventNom;
+    @FXML public TableColumn<EventScrapping, String> EventDiscipline;
 
     @FXML private TableColumn<AthleteScrapping, String> AthleteNom;
     @FXML private TableColumn<AthleteScrapping, String> AthletePrenom;
@@ -68,6 +76,18 @@ public class AdministrationController {
         AthleteEvent.setCellValueFactory(new PropertyValueFactory<>("event"));
         AthleteNationalite.setCellValueFactory(new PropertyValueFactory<>("nationalite"));
         initializeAthletes();
+
+        EventNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        EventDiscipline.setCellValueFactory(new PropertyValueFactory<>("discipline_nom"));
+        initializeEvent();
+
+        ResultatEvenement.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        ResultatGold.setCellValueFactory(new PropertyValueFactory<>("gold"));
+        ResultatSilver.setCellValueFactory(new PropertyValueFactory<>("silver"));
+        ResultatBronze.setCellValueFactory(new PropertyValueFactory<>("bronze"));
+
+        initializeResultat();
+
         Improfile();
 
 
@@ -144,24 +164,78 @@ public class AdministrationController {
             e.printStackTrace();
         }
     }
-    /*public void initializeevent(){
-        String query = "SELECT nom FROM evenement";
+
+    public void initializeResultat() {
+        String query = "SELECT r.evenement_id, e.nom AS evenement_nom, r.bronze, r.silver, r.gold " +
+                "FROM resultats r " +
+                "JOIN evenement e ON r.evenement_id = e.id";
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
 
-            ObservableList<Event> events = FXCollections.observableArrayList();
+            ObservableList<ResultatScrapping> resultats = FXCollections.observableArrayList();
 
             while (resultSet.next()) {
-                String nom = resultSet.getString("nom");
-                events.add(new Event(nom));
+                int evenementId = resultSet.getInt("evenement_id");
+                String evenementNom = resultSet.getString("evenement_nom");
+                int bronzeAthleteId = resultSet.getInt("bronze");
+                int silverAthleteId = resultSet.getInt("silver");
+                int goldAthleteId = resultSet.getInt("gold");
+
+                // Fetch athlete names for bronze, silver, and gold medals
+                String bronzeAthleteName = fetchAthleteName(bronzeAthleteId);
+                String silverAthleteName = fetchAthleteName(silverAthleteId);
+                String goldAthleteName = fetchAthleteName(goldAthleteId);
+
+                // Assuming ResultatScrapping is the class representing your "resultats" table
+                resultats.add(new ResultatScrapping(evenementNom, bronzeAthleteName, silverAthleteName, goldAthleteName));
+            }
+
+            // Assuming your TableView is named "tableResultat" and the columns are named accordingly
+            ResultatEvenement.setCellValueFactory(new PropertyValueFactory<>("nom"));
+            ResultatBronze.setCellValueFactory(new PropertyValueFactory<>("bronze"));
+            ResultatSilver.setCellValueFactory(new PropertyValueFactory<>("silver"));
+            ResultatGold.setCellValueFactory(new PropertyValueFactory<>("gold"));
+
+            tableResultat.setItems(resultats);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String fetchAthleteName(int athleteId) throws SQLException {
+        String query = "SELECT nom FROM athletes WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, athleteId);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            return resultSet.getString("nom");
+        } else {
+            return "Unknown"; // Or handle this case based on your requirements
+        }
+    }
+
+    public void initializeEvent() {
+        String query = "SELECT e.nom AS event_nom, d.nom AS discipline_nom " +
+                "FROM evenement e " +
+                "JOIN discipline d ON e.discipline_id = d.id";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            ObservableList<EventScrapping> events = FXCollections.observableArrayList();
+
+            while (resultSet.next()) {
+                String eventNom = resultSet.getString("event_nom");
+                String disciplineNom = resultSet.getString("discipline_nom");
+                events.add(new EventScrapping(eventNom, disciplineNom));
             }
 
             tableEvent.setItems(events);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
     private void initializeDB() {
         String databaseName = "app_java";
