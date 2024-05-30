@@ -41,7 +41,7 @@
                     <Insets top="10.0" />
                 </VBox.margin>
             </TextField>
-            <Button fx:id="connex" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#modifierDiscipline" prefHeight="68.0" prefWidth="272.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Ajouter une Discipline" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="connex" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#modifierDiscipline" prefHeight="68.0" prefWidth="272.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Modifier" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font size="23.0" />
                 </font>

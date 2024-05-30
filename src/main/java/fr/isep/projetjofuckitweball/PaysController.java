@@ -28,7 +28,7 @@ public class PaysController {
 
     public void initialize() {
 
-        initializeDB();
+        connection = DB.getConnection();
 
         barreRecherche.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -66,21 +66,6 @@ public class PaysController {
                 }
             }
         });
-    }
-
-    private void initializeDB() {
-        String databaseName = "app_java";
-        String databaseUser = "root";
-        String databasePassword = "";
-        String url = "jdbc:mysql://localhost/" + databaseName;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(url, databaseUser, databasePassword);
-            System.out.println("Connexion à la base de données établie.");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public void loadConnexion(MouseEvent mouseEvent) {

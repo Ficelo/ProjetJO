@@ -118,7 +118,7 @@
             </font></TextField>
         </children>
     </VBox>
-    <Button fx:id="connex" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="581.0" mnemonicParsing="false" onAction="#modifierAthlete" prefHeight="88.0" prefWidth="500.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Enregistrer les modification" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="581.0">
+    <Button fx:id="connex" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="581.0" mnemonicParsing="false" onAction="#modifierAthlete" prefHeight="88.0" prefWidth="400.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Modifier" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="581.0">
         <font>
             <Font size="37.0" />
         </font>

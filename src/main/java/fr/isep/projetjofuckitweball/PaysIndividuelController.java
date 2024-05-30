@@ -46,23 +46,9 @@ public class PaysIndividuelController {
     private int totalGold = 0;
 
     public void initialize() {
-        initializeDB();
+        connection = DB.getConnection();
     }
 
-    private void initializeDB() {
-        String databaseName = "app_java";
-        String databaseUser = "root";
-        String databasePassword = "";
-        String url = "jdbc:mysql://localhost/" + databaseName;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(url, databaseUser, databasePassword);
-            System.out.println("Connexion à la base de données établie.");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void loadConnexion(MouseEvent mouseEvent) {
         try {
@@ -134,7 +120,6 @@ public class PaysIndividuelController {
 
     public void updateNomPays(String text) throws SQLException {
         this.nomPays.setText(text);
-        initializeDB();
         String pays = text;
         String query = "SELECT a.nom, a.prenom, a.age, a.sport, a.event, n.country, a.sexe " +
                 "FROM athletes a " +

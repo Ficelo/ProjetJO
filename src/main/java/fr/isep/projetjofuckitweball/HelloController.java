@@ -41,7 +41,7 @@ public class HelloController {
         //Image bannerImage = new Image(getClass().getResource("/Images/JoBan.jpg").toExternalForm());
         //bannerView.setImage(bannerImage);
 
-        initializeDB();
+        connection = DB.getConnection();
         signUpLink.setOnAction(event -> {
             inscription();
         });
@@ -49,20 +49,6 @@ public class HelloController {
         
     }
 
-    private void initializeDB() {
-        String databaseName = "app_java";
-        String databaseUser = "root";
-        String databasePassword = "";
-        String url = "jdbc:mysql://localhost/" + databaseName;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(url, databaseUser, databasePassword);
-            System.out.println("Connexion à la base de données établie.");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-    }
     @FXML
     private void loginUser() {
         String email = emailField.getText();

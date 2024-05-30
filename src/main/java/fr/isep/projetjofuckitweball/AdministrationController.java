@@ -60,7 +60,7 @@ public class AdministrationController {
 
 
     public void initialize() {
-        initializeDB();
+        connection = DB.getConnection();
 
         DisciplineNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         EventNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -259,21 +259,6 @@ public class AdministrationController {
 
             tableEvent.setItems(events);
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void initializeDB() {
-        String databaseName = "app_java";
-        String databaseUser = "root";
-        String databasePassword = "";
-        String url = "jdbc:mysql://localhost/" + databaseName;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(url, databaseUser, databasePassword);
-            System.out.println("Connexion à la base de données établie.");
-        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
