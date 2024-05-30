@@ -39,13 +39,11 @@ public class StatistiquesController {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
 
-            // A map to hold aggregated medal counts per date for each country
             Map<String, Map<String, Integer>> countryMedalCounts = new HashMap<>();
 
             while (resultSet.next()) {
                 String date = resultSet.getString("date");
 
-                // Iterate over each country and its corresponding medals
                 for (int i = 1; i <= 5; i++) {
                     String country = resultSet.getString("pays" + i);
                     String[] medals = resultSet.getString("medals" + i).split(";");
@@ -60,14 +58,12 @@ public class StatistiquesController {
             resultSet.close();
             statement.close();
 
-            // Prepare data for the LineChart
             graphique.getData().clear();
 
             for (String country : countryMedalCounts.keySet()) {
                 XYChart.Series<String, Number> series = new XYChart.Series<>();
                 series.setName(country);
 
-                // Sort the dates to ensure the x-axis is in chronological order
                 List<String> sortedDates = new ArrayList<>(countryMedalCounts.get(country).keySet());
                 sortedDates.sort(Comparator.naturalOrder());
 
@@ -75,7 +71,6 @@ public class StatistiquesController {
                     series.getData().add(new XYChart.Data<>(date, countryMedalCounts.get(country).get(date)));
                 }
 
-                // Add the series to the chart
                 graphique.getData().add(series);
             }
 

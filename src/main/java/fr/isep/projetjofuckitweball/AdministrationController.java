@@ -90,7 +90,7 @@ public class AdministrationController {
 
         Improfile();
 
-        // Ajouter un gestionnaire de double clic pour la table des athlètes
+        // double clic sur athlète
         tableAthlete.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 AthleteScrapping selectedAthlete = tableAthlete.getSelectionModel().getSelectedItem();
@@ -101,6 +101,7 @@ public class AdministrationController {
             }
         });
 
+        // double clic sur discipline
         tableDiscipline.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 PaysScrapping selectedDiscipline = tableDiscipline.getSelectionModel().getSelectedItem();
@@ -110,6 +111,7 @@ public class AdministrationController {
             }
         });
 
+        //double click evenement
         tableEvent.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 EventScrapping selectedEvent = tableEvent.getSelectionModel().getSelectedItem();
@@ -209,16 +211,13 @@ public class AdministrationController {
                 int silverAthleteId = resultSet.getInt("silver");
                 int goldAthleteId = resultSet.getInt("gold");
 
-                // Fetch athlete names for bronze, silver, and gold medals
                 String bronzeAthleteName = fetchAthleteName(bronzeAthleteId);
                 String silverAthleteName = fetchAthleteName(silverAthleteId);
                 String goldAthleteName = fetchAthleteName(goldAthleteId);
 
-                // Assuming ResultatScrapping is the class representing your "resultats" table
                 resultats.add(new ResultatScrapping(evenementNom, bronzeAthleteName, silverAthleteName, goldAthleteName));
             }
 
-            // Assuming your TableView is named "tableResultat" and the columns are named accordingly
             ResultatEvenement.setCellValueFactory(new PropertyValueFactory<>("nom"));
             ResultatBronze.setCellValueFactory(new PropertyValueFactory<>("bronze"));
             ResultatSilver.setCellValueFactory(new PropertyValueFactory<>("silver"));
@@ -238,7 +237,7 @@ public class AdministrationController {
         if (resultSet.next()) {
             return resultSet.getString("nom");
         } else {
-            return "Unknown"; // Or handle this case based on your requirements
+            return "Unknown";
         }
     }
 
@@ -410,17 +409,17 @@ public class AdministrationController {
     }
     public void add(ActionEvent actionEvent) {
         if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Athletes")) {
-            showAlert(Alert.AlertType.INFORMATION, "athlete", "je suis biens sur les ath.");
+            //showAlert(Alert.AlertType.INFORMATION, "athlete", "je suis biens sur les ath.");
             redirectionath();
 
         } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Discipline")) {
-            showAlert(Alert.AlertType.INFORMATION, "Discipline", "je suis biens sur les disc.");
+            //showAlert(Alert.AlertType.INFORMATION, "Discipline", "je suis biens sur les disc.");
             redirectiondisc();
         } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Evenement")) {
-            showAlert(Alert.AlertType.INFORMATION, "event", "je suis biens sur les event.");
+            //showAlert(Alert.AlertType.INFORMATION, "event", "je suis biens sur les event.");
             redirectionevent();
         } else {
-            showAlert(Alert.AlertType.INFORMATION, "Résultat", "je suis biens sur les résultats.");
+            //showAlert(Alert.AlertType.INFORMATION, "Résultat", "je suis biens sur les résultats.");
             redirectionAjoutResultat();
         }
 
@@ -454,18 +453,14 @@ public class AdministrationController {
     private void redirectionath()
     {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Athletes.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) connex.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();
@@ -477,18 +472,14 @@ public class AdministrationController {
     private void redirectiondisc()
     {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Disc.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) connex.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();
@@ -499,18 +490,14 @@ public class AdministrationController {
     private void redirectionevent()
     {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("event.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) connex.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();
@@ -523,10 +510,8 @@ public class AdministrationController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("modifAthlete.fxml"));
             Parent root = loader.load();
 
-            // Obtenez le contrôleur associé au fichier FXML
             modifAthleteControlleur controller = loader.getController();
 
-            // Définir l'athlète sélectionné dans le contrôleur
             controller.setAthlete(athlete);
 
             Scene scene = new Scene(root);
@@ -545,10 +530,8 @@ public class AdministrationController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("modifDiscipline.fxml"));
             Parent root = loader.load();
 
-            // Obtenez le contrôleur associé au fichier FXML
             ModifDisciplineControlleur controller = loader.getController();
 
-            // Définir la discipline sélectionnée dans le contrôleur
             controller.setDiscipline(discipline);
 
             Scene scene = new Scene(root);
@@ -567,10 +550,8 @@ public class AdministrationController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifEvent.fxml"));
             Parent root = loader.load();
 
-            // Obtenez le contrôleur associé au fichier FXML
             ModifEventControlleur controller = loader.getController();
 
-            // Définir la discipline sélectionnée dans le contrôleur
             controller.setEvent(event);
 
             Scene scene = new Scene(root);

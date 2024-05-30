@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.modifAthleteControlleur">
+<AnchorPane prefHeight="800" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.isep.projetjofuckitweball.modifAthleteControlleur">
     <Line endX="100.0" startX="-100.0" />
     <VBox alignment="TOP_CENTER" layoutX="360.0" layoutY="106.0" prefHeight="423.0" prefWidth="480.0">
         <children>
 
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="       nom :" wrappingWidth="181.13671684265137">
+            <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="nom :" textAlignment="CENTER" wrappingWidth="181.13671684265137">
                 <font>
                     <Font size="20.0" />
                 </font>
@@ -23,25 +28,34 @@
                     <Font size="20.0" />
                 </font>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="       prénom : " wrappingWidth="185.1367244720459">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="prénom : " textAlignment="CENTER" wrappingWidth="185.1367244720459">
                 <font>
                     <Font size="20.0" />
                 </font>
             </Text>
-            <TextField fx:id="prenomField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+            <TextField fx:id="prenomField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
             <HBox prefHeight="100.0" prefWidth="200.0">
                 <children>
                     <VBox prefHeight="200.0" prefWidth="100.0">
                         <children>
-                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="     age:" wrappingWidth="93.18359756469727">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="age:" textAlignment="CENTER" wrappingWidth="93.18359756469727">
                                 <font>
                                     <Font size="20.0" />
                                 </font>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin>
                             </Text>
                             <TextField fx:id="ageField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
                                 <VBox.margin>
                                     <Insets />
-                                </VBox.margin></TextField>
+                                </VBox.margin>
+                        <font>
+                           <Font size="20.0" />
+                        </font></TextField>
                         </children>
                         <HBox.margin>
                             <Insets left="35.0" />
@@ -49,12 +63,18 @@
                     </VBox>
                     <VBox prefHeight="200.0" prefWidth="100.0">
                         <children>
-                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Sexe :" wrappingWidth="98.63672256469727">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sexe :" textAlignment="CENTER" wrappingWidth="98.63672256469727">
                                 <font>
                                     <Font size="20.0" />
                                 </font>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin>
                             </Text>
-                            <TextField fx:id="sexeField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+                            <TextField fx:id="sexeField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+                        <font>
+                           <Font size="20.0" />
+                        </font></TextField>
 
                         </children>
                         <HBox.margin>
@@ -68,22 +88,37 @@
                     <Font size="20.0" />
                 </font>
             </Text>
-            <TextField fx:id="sportField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+            <TextField fx:id="sportField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement :">
                 <font>
                     <Font size="20.0" />
                 </font>
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
             </Text>
-            <TextField fx:id="eventField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+            <TextField fx:id="eventField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nationalité :">
                 <font>
                     <Font size="20.0" />
                 </font>
+            <VBox.margin>
+               <Insets top="1.0" />
+            </VBox.margin>
             </Text>
-            <TextField fx:id="nationaliteField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css" />
+            <TextField fx:id="nationaliteField" alignment="CENTER" maxWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" styleClass="barre-recherche" stylesheets="@../../../styles/sports.css">
+            <font>
+               <Font size="20.0" />
+            </font></TextField>
         </children>
     </VBox>
-    <Button fx:id="connex" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="581.0" mnemonicParsing="false" onAction="#modifierAthlete" prefHeight="88.0" prefWidth="500.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Enregistrer les modification" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="581.0">
+    <Button fx:id="connex" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="581.0" mnemonicParsing="false" onAction="#modifierAthlete" prefHeight="88.0" prefWidth="500.0" style="-fx-border-radius: 100;" stylesheets="@../../../styles/Connexion.css" text="Enregistrer les modification" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="581.0">
         <font>
             <Font size="37.0" />
         </font>

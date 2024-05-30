@@ -221,10 +221,6 @@ public class Scrapping {
                 System.err.println("Page not found for athlete: " + athlete.getNom() + " " + athlete.getPrenom() + " - URL: " + lien);
             }
         }
-
-        if (verbose) {
-            // Additional verbose logic if needed
-        }
     }
 
 

@@ -52,14 +52,11 @@ public class InscriptionControlleur {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
 
-        // Filtre pour ne montrer que les fichiers d'images
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Images (*.png, *.jpg, *.jpeg, *.gif)", "*.png", "*.jpg", "*.jpeg", "*.gif");
         fileChooser.getExtensionFilters().add(extFilter);
 
-        // Afficher la boîte de dialogue et attendre que l'utilisateur sélectionne un fichier
         File selectedFile = fileChooser.showOpenDialog(null);
 
-        // Si un fichier est sélectionné, charger l'image dans l'application
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
             imageView.setImage(image);
@@ -67,7 +64,6 @@ public class InscriptionControlleur {
     }
     @FXML
     private void handleInscription(ActionEvent event) {
-        // Récupérer les autres informations de l'utilisateur
         String sexe = genderComboBox.getValue();
         String nom = nomField.getText();
         String prenom = prenomField.getText();
@@ -75,7 +71,7 @@ public class InscriptionControlleur {
         String role = roleField.getText();
         String email = emailField.getText();
         String password = passwordField.getText();
-        String confirmPassword = verifField.getText(); // Ajout du champ "Vérification de password"
+        String confirmPassword = verifField.getText();
 
         if (!password.equals(confirmPassword)) {
 
@@ -84,11 +80,8 @@ public class InscriptionControlleur {
             return;
         }
 
-
-        // Récupérer l'image sélectionnée par l'utilisateur
         Image image = imageView.getImage();
 
-        // Inscrire l'utilisateur dans la base de données
         inscrireUtilisateur(sexe, nom, prenom, age, role, email, password, image);
 
         redirectionConnexion();
@@ -116,7 +109,6 @@ public class InscriptionControlleur {
                     Files.copy(new File(image.getUrl().substring(5)).toPath(), byteArrayOutputStream);
                     preparedStatement.setBytes(8, byteArrayOutputStream.toByteArray());
                 } else {
-                    // Si l'image est nulle, utilisez l'image par défaut
                     ByteArrayOutputStream defaultImageStream = new ByteArrayOutputStream();
                     Files.copy(new File(defaultImage.getUrl().substring(5)).toPath(), defaultImageStream);
                     preparedStatement.setBytes(8, defaultImageStream.toByteArray());
@@ -138,18 +130,14 @@ public class InscriptionControlleur {
     private void redirectionConnexion()
     {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) inscri.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();
@@ -163,18 +151,14 @@ public class InscriptionControlleur {
     }
     public void loadRetour(MouseEvent mouseEvent) {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) RetourButton.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();

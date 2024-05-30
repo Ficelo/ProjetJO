@@ -19,16 +19,16 @@ public class HelloController {
     public AnchorPane topBar;
     @FXML    private ImageView bannerView;
 
-@FXML
+    @FXML
     private Connection connection;
-@FXML
-private TextField emailField;
-@FXML
-private PasswordField passwordField;
-@FXML
+    @FXML
+    private TextField emailField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
     private Hyperlink signUpLink;
-@FXML
-private Button connex;
+    @FXML
+    private Button connex;
     public Label AcceuilButton;
     public Label SportButton;
     public Label PaysButton;
@@ -68,14 +68,11 @@ private Button connex;
         String email = emailField.getText();
         String password = passwordField.getText();
 
-
-        // Vérifier si les champs sont vides
         if (email.isEmpty() || password.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Erreur", "Veuillez saisir votre e-mail et votre mot de passe.");
             return;
         }
 
-        // Vérifier si les informations de connexion sont correctes
         String query = "SELECT * FROM user WHERE email = ? AND password = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(query);
@@ -84,13 +81,11 @@ private Button connex;
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                // Les informations de connexion sont correctes
                 int userId = resultSet.getInt("id");
-                AuthService.setLoggedInUserId(userId); // Définir l'ID de l'utilisateur connecté
-                showAlert(Alert.AlertType.INFORMATION, "Connexion Réussie", "Vous êtes connecté.");
+                AuthService.setLoggedInUserId(userId);
+                //showAlert(Alert.AlertType.INFORMATION, "Connexion Réussie", "Vous êtes connecté.");
                 redirectionConnexion();
             } else {
-                // Les informations de connexion sont incorrectes
                 showAlert(Alert.AlertType.ERROR, "Erreur", "L'e-mail ou le mot de passe est incorrect.");
             }
         } catch (SQLException e) {
@@ -103,18 +98,14 @@ private Button connex;
     private void inscription()
     {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Inscription.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) signUpLink.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();

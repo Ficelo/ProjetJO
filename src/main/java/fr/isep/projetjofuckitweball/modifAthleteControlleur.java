@@ -63,7 +63,6 @@ public class modifAthleteControlleur {
             System.out.println(preparedStatement);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            // Récupérer l'ID de l'athlète
             if (resultSet.next()) {
                 idAthlete = resultSet.getInt("id");
                 System.out.println("ID de l'athlète : " + idAthlete);
@@ -112,18 +111,14 @@ public class modifAthleteControlleur {
     private void redirectionadmin()
     {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Administration.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) connex.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();
@@ -134,18 +129,14 @@ public class modifAthleteControlleur {
 
     public void loadRetour(MouseEvent mouseEvent) {
         try {
-            // Charger le fichier FXML de la page d'inscription
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Administration.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec la racine chargée depuis le fichier FXML
             Scene scene = new Scene(root);
 
-            // Fermer la fenêtre actuelle de connexion
             Stage stage = (Stage) RetourButton.getScene().getWindow();
             stage.close();
 
-            // Créer une nouvelle fenêtre pour la page d'inscription et afficher la scène
             Stage inscriptionStage = new Stage();
             inscriptionStage.setScene(scene);
             inscriptionStage.show();

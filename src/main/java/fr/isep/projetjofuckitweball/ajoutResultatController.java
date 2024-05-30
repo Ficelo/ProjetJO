@@ -48,20 +48,17 @@ public class ajoutResultatController {
     }
 
     private void populateEvenementChoiceBox() {
-        // Clear existing items
+
         choiceEvenement.getItems().clear();
 
-        // Query to retrieve evenement names from the database
         String query = "SELECT id, nom FROM evenement";
 
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
 
-            // List to store evenement names
             List<String> evenements = new ArrayList<>();
 
-            // Add evenement names to the list
             while (resultSet.next()) {
                 String nom = resultSet.getString("nom");
                 int id = resultSet.getInt("id");
@@ -69,7 +66,6 @@ public class ajoutResultatController {
                 evenements.add(nom);
             }
 
-            // Populate the ChoiceBox with evenement names
             choiceEvenement.setItems(FXCollections.observableArrayList(evenements));
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,13 +106,26 @@ public class ajoutResultatController {
         System.out.println("Evenement : " + choiceEvenement.getValue() + " Gold : " + choiceGold.getValue() + " Silver : " + choiceSilver.getValue() + " Bronze : " + choiceBronze.getValue());
         String query = "INSERT INTO resultats (evenement_id, gold, silver, bronze) VALUES (?, ?, ?, ?)";
 
+        ArrayList<String> countries = new ArrayList<>();
+
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, evenementID.get(choiceEvenement.getValue()));
             statement.setInt(2, athletesID.get(choiceGold.getValue()));
             statement.setInt(3, athletesID.get(choiceSilver.getValue()));
             statement.setInt(4, athletesID.get(choiceBronze.getValue()));
-            int rowsAffected = statement.executeUpdate();
+
+            String goldCountry = getCountryByNationality(choiceGold.getValue().toString());
+            String silverCountry = getCountryByNationality(choiceSilver.getValue().toString());
+            String bronzeCountry = getCountryByNationality(choiceBronze.getValue().toString());
+
+            System.out.println("Gold Athlete Country: " + goldCountry);
+            System.out.println("Silver Athlete Country: " + silverCountry);
+            System.out.println("Bronze Athlete Country: " + bronzeCountry);
+
+            countries.add(goldCountry);
+            countries.add(silverCountry);
+            countries.add(bronzeCountry);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -138,34 +147,46 @@ public class ajoutResultatController {
 
         // C'est une méthode de maxi barbare de faire comme ça mais je reverai ça plus tard
 
-        ArrayList<String> pays = getPaysNoms();
-
-        for(String p : pays){
+        for(String p : countries){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PaysIndividuel.fxml"));
             Parent root = fxmlLoader.load();
             PaysIndividuelController controller = fxmlLoader.getController();
             controller.updateNomPays(p);
-
         }
+
+
 
     }
 
-    public ArrayList<String> getPaysNoms() {
-        ArrayList<String> paysNoms = new ArrayList<>();
-        String query = "SELECT nom FROM pays";
+    private String getCountryByNationality(String athleteName) {
+        String[] names = athleteName.split(" ");
+        if (names.length < 2) {
+            System.out.println("Invalid athlete name: " + athleteName);
+            return null;
+        }
+        String firstName = names[0];
+        String lastName = names[1];
+
+        String query = "SELECT p.nom AS country " +
+                "FROM Nationalities n " +
+                "JOIN athletes a ON a.nationalite = n.nationality " +
+                "JOIN pays p ON n.country = p.nom " +
+                "WHERE a.prenom = ? AND a.nom = ?";
 
         try {
             PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            System.out.println(statement);
             ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()) {
-                paysNoms.add(resultSet.getString("nom"));
+            if (resultSet.next()) {
+                return resultSet.getString("country");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return paysNoms;
+        return null;
     }
 
     public void loadConnexion(MouseEvent mouseEvent) {

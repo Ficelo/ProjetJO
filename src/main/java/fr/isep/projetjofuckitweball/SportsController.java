@@ -180,18 +180,13 @@ public class SportsController {
     }
 
     public void goToSport(MouseEvent mouseEvent) {
-        // Get the source of the event
         Object source = mouseEvent.getSource();
 
-        // Check if the source is an ImageView
         if (source instanceof ImageView) {
-            // Cast the source to an ImageView
             ImageView clickedImageView = (ImageView) source;
 
-            // Get the ID of the ImageView
             String imageViewId = clickedImageView.getId();
 
-            // Print the ID of the ImageView
             System.out.println("ImageView ID: " + imageViewId);
 
             try {
@@ -213,10 +208,6 @@ public class SportsController {
             }
 
         }
-
-
-
-
 
     }
 

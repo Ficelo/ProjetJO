@@ -1,6 +1,7 @@
 package fr.isep.projetjofuckitweball;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -8,7 +9,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -131,11 +134,11 @@ public class SportController {
         connection = DB.getConnection();
         athleteContainer.getChildren().clear();
 
-        String query = "SELECT a.nom, a.prenom, a.nationalite " +
+        String query = "SELECT a.nom, a.prenom, a.nationalite, a.event " +
                 "FROM athletes a " +
                 "JOIN evenement e ON e.nom LIKE CONCAT('%', a.event, '%') " +
                 "JOIN discipline d ON e.discipline_id = d.id " +
-                "WHERE d.nom = ?";
+                "WHERE d.nom = ? ORDER BY a.event";
 
         HashSet<String> processedAthletes = new HashSet<>();
 
@@ -144,10 +147,13 @@ public class SportController {
             statement.setString(1, text);
             ResultSet resultSet = statement.executeQuery();
 
+            String currentEvent = "";
+
             while (resultSet.next()) {
                 String nom = resultSet.getString("nom");
                 String prenom = resultSet.getString("prenom");
                 String nationalite = resultSet.getString("nationalite");
+                String event = resultSet.getString("event");
 
                 String athleteIdentifier = nom + prenom + nationalite;
                 if (processedAthletes.contains(athleteIdentifier)) {
@@ -156,17 +162,47 @@ public class SportController {
 
                 processedAthletes.add(athleteIdentifier);
 
+                if(!event.equals(currentEvent)) {
+                    currentEvent = event;
+                    Text nomEvent = new Text(event);
+                    Text magouille = new Text(" ");
+                    Text magouille2 = new Text(" ");
+                    nomEvent.setFont(new Font(25.0));
+                    magouille.setFont(new Font(25.0));
+                    magouille2.setFont(new Font(25.0));
+
+                    // Un peu un technique de clochard mais si ça marche osef
+                    athleteContainer.getChildren().add(magouille2);
+                    athleteContainer.getChildren().add(nomEvent);
+                    athleteContainer.getChildren().add(magouille);
+                }
+
                 HBox athleteBox = new HBox();
                 Text nomText = new Text(nom);
                 Text prenomText = new Text(prenom);
                 Text nationaliteText = new Text(nationalite);
 
-                athleteBox.getChildren().addAll(nomText, prenomText, nationaliteText);
+                nomText.setFont(new Font(20.0));
+                prenomText.setFont(new Font(20.0));
+                nationaliteText.setFont(new Font(20.0));
 
-                // Optionally, add some styling to the HBox and Text elements
-                athleteBox.setSpacing(10); // Set spacing between elements in HBox
 
-                // Add the HBox to the VBox
+                //athleteBox.getChildren().addAll(nomText, prenomText, nationaliteText, eventText);
+
+
+                //athleteBox.setSpacing(10);
+                HBox leftHBox = new HBox();
+                leftHBox.getChildren().addAll(nomText, prenomText);
+                leftHBox.setSpacing(10);
+                HBox rightHBox = new HBox();
+                rightHBox.getChildren().addAll(nationaliteText);
+                rightHBox.setAlignment(Pos.CENTER);
+                rightHBox.setSpacing(10);
+
+                HBox.setHgrow(leftHBox, Priority.ALWAYS);
+                athleteBox.getChildren().addAll(leftHBox, rightHBox);
+
+
                 athleteContainer.getChildren().add(athleteBox);
             }
 
